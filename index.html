@@ -167,12 +167,20 @@
     border-radius: 12px;
     overflow: hidden;
     box-shadow: var(--shadow);
-    /* [À REMPLACER] : vraies photos avant/après de Julie */
     background: linear-gradient(135deg, #3a3a3a, #1a1a1a);
-    display: flex; align-items: flex-end; padding: 16px;
-    color: var(--or-light); font-style: italic;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+  }
+  .gallery-item .caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.85));
+    color: var(--or-light);
+    padding: 32px 16px 16px;
     font-size: 0.9em;
-    background-size: cover; background-position: center;
+    font-style: italic;
+    text-align: left;
   }
 
   /* AVIS */
@@ -359,15 +367,30 @@
 <section id="galerie">
   <h2>Nos réalisations</h2>
   <p style="text-align:center; max-width:680px; margin:0 auto 12px; color:var(--gris);">
-    [À REMPLACER — Julie, envoie-nous 6-12 photos de tes meilleurs tresses, locks, avant/après]
+    Quelques-unes de nos prestations — avant/après, tissages, tresses et soins.
   </p>
   <div class="gallery">
-    <div class="gallery-item">Photo 1 — Box braids longue durée</div>
-    <div class="gallery-item">Photo 2 — Cornrows design</div>
-    <div class="gallery-item">Photo 3 — Locks homme</div>
-    <div class="gallery-item">Photo 4 — Tresses avec rajouts</div>
-    <div class="gallery-item">Photo 5 — Bantu knots</div>
-    <div class="gallery-item">Photo 6 — Avant/Après soins</div>
+    <div class="gallery-item" style="background-image: url('images/julie-1.jpg');">
+      <div class="caption">✂️ Avant / Après — Extension au fil blonde</div>
+    </div>
+    <div class="gallery-item" style="background-image: url('images/julie-2.jpg');">
+      <div class="caption">✂️ Weft Extension sans colle — micro-rings invisibles</div>
+    </div>
+    <div class="gallery-item" style="background-image: url('images/julie-3.jpg');">
+      <div class="caption">✂️ Avant / Après — Volume et définition curls</div>
+    </div>
+    <div class="gallery-item" style="background-image: url('images/julie-4.jpg');">
+      <div class="caption">✂️ Box Braid Large — tenue plusieurs semaines</div>
+    </div>
+    <div class="gallery-item" style="background-image: url('images/julie-5.jpg');">
+      <div class="caption">✂️ Tresses Plaqués avec Mèche — finition nette</div>
+    </div>
+    <div class="gallery-item" style="background-image: url('images/julie-6.jpg');">
+      <div class="caption">✂️ Pose d'extensions — résultat naturel</div>
+    </div>
+    <div class="gallery-item" style="background-image: url('images/julie-7.jpg');">
+      <div class="caption">✂️ Braids / Tresses — technique maîtrisée</div>
+    </div>
   </div>
 </section>
 
