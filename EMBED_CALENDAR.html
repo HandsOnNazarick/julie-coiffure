@@ -1,0 +1,59 @@
+<!-- 
+  EMBED CALENDAR — à insérer dans index.html à la place du bouton WhatsApp dans la section "Prendre rendez-vous"
+  Instructions :
+  1. Remplace TON-HANDLE par ton handle cal.com (ex: momanga-handsonnazarick)
+  2. Choisis entre OPTION A (bouton popup), OPTION B (iframe inline), ou OPTION C (lien direct)
+-->
+
+<!-- OPTION A — Bouton popup Cal.com (RECOMMANDÉ : léger, rapide, mobile-friendly) -->
+<div style="text-align:center;">
+  <button onclick="CalCom('TS')" 
+          style="display:inline-block; background:var(--or); color:var(--noir); padding:18px 40px; border:none; border-radius:32px; font-size:1.2em; font-weight:600; cursor:pointer; box-shadow:0 4px 16px rgba(201,169,97,.3);">
+    📅 Réserver en ligne
+  </button>
+  <br>
+  <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20prendre%20RDV%20%E2%9C%89%EF%B8%8F" target="_blank" rel="noopener"
+     style="display:inline-block; margin-top:12px; color:var(--gris); text-decoration:underline; font-size:0.95em;">
+    ou réserver par WhatsApp
+  </a>
+</div>
+
+<!-- Script Cal.com popup (à mettre avant </body>) -->
+<link rel="stylesheet" href="https://app.cal.com/embed/embed.css"/>
+<script>
+  (function (C, A, L) { 
+    let p = function (ar) { p.q.push(ar) }; 
+    p.q = []; 
+    let d = C.document; 
+    C.Cal = C.Cal || function () { p.call(arguments) }; 
+  })(window, 'script', 'cal');
+  
+  // Configurer les event types
+  Cal("init", "10", {origin:"https://cal.com"});
+  Cal.ns.tributes("ui", {"cssVarsPerEvent":{"TS":{"eventTypeId":"TON-EVENT-ID"}}});
+  
+  // Popup
+  CalCom = (e) => Cal.com.popupWindowSrc({calLink:'TON-HANDLE/ton-event-slug', layout:'month_view'}).then(src => window.open(src, '_blank'));
+</script>
+<script src="https://app.cal.com/embed/embed.js"></script>
+
+
+<!-- OPTION B — Iframe inline (à décommenter si tu préfères que le calendrier soit visible directement sur la page, sans clic) -->
+<!--
+<div style="border-radius:12px; overflow:hidden; box-shadow:0 10px 30px -10px rgba(0,0,0,0.2); margin-top:32px;">
+  <iframe src="https://cal.com/TON-HANDLE" 
+          width="100%" height="700" frameborder="0" 
+          style="border-radius:12px;" 
+          title="Prendre rendez-vous avec Julie Coiffure">
+  </iframe>
+</div>
+-->
+
+
+<!-- OPTION C — Lien direct simple (à décommenter si tu veux juste rediriger) -->
+<!--
+<a href="https://cal.com/TON-HANDLE" target="_blank" rel="noopener"
+   style="display:inline-block; background:var(--or); color:var(--noir); padding:18px 40px; border-radius:32px; font-size:1.2em; font-weight:600; text-decoration:none; box-shadow:0 4px 16px rgba(201,169,97,.3);">
+  📅 Réserver en ligne
+</a>
+-->
