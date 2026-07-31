@@ -1,12 +1,12 @@
-# 🌐 Ton site web Julie Coiffure — Comment le gérer
+# Ton site web Julie Coiffure — Comment le gérer
 
-Salut Julie 👋
+Salut Julie 
 
 Voilà ton site : **https://handsonnazarick.github.io/julie-coiffure/**
 
 Il est en ligne 24h/24. Tu peux le partager sur WhatsApp, Instagram, ta fiche Google, etc.
 
-## ⚠️ La vraie avant de continuer
+## ️ La vraie avant de continuer
 
 Le site actuel est **codé en dur** (HTML/CSS par quelqu'un). Tu peux le **lire** et le **partager**, mais tu ne peux **pas le modifier toi-même** comme un éditeur de texte Word.
 
@@ -23,26 +23,26 @@ Pour modifier des choses (textes, photos, horaires), il faut **quelqu'un qui s'y
 
 ---
 
-## 🛠️ Ce que tu peux faire toi-même, sans toucher au code
+## ️ Ce que tu peux faire toi-même, sans toucher au code
 
-### ✅ Partager le lien
-- Sur WhatsApp : copier https://handsonnazarick.github.io/julie-coiffure/ → envoyer
+### Partager le lien
+- Sur WhatsApp : copier https://handsonnazarick.github.io/julie-coiffure/ envoyer
 - Sur Instagram : mettre le lien dans ta bio
 - Sur ta fiche Google Maps : demander à Google de l'ajouter via ton dashboard
 
-### ✅ Quand une cliente t'écrit sur WhatsApp pour un RDV
-- Elle clique le bouton vert "💬 Réserver par WhatsApp" du site
+### Quand une cliente t'écrit sur WhatsApp pour un RDV
+- Elle clique le bouton vert " Réserver par WhatsApp" du site
 - WhatsApp s'ouvre avec un message pré-rempli (la prestation, l'heure, etc.)
 - Tu discutes avec elle directement
 
-### ✅ Si une cliente te demande un truc en plus (ex: nouvelles photos)
+### Si une cliente te demande un truc en plus (ex: nouvelles photos)
 - Tu m'envoies la photo par WhatsApp (moi, Aleks)
 - Je la mets sur le site sous 1-2 jours
 - Le site se met à jour automatiquement
 
 ---
 
-## 📋 Ce qui est déjà sur le site (et qui ne change pas)
+## Ce qui est déjà sur le site (et qui ne change pas)
 
 | Élément | Valeur |
 |---|---|
@@ -59,7 +59,7 @@ Pour modifier des choses (textes, photos, horaires), il faut **quelqu'un qui s'y
 
 ---
 
-## 💸 Le nom de domaine juliecoiffure.ch (optionnel)
+## Le nom de domaine juliecoiffure.ch (optionnel)
 
 Si tu veux une adresse **plus pro** comme `juliecoiffure.ch` au lieu de `handsonnazarick.github.io/julie-coiffure/`, c'est ~15 CHF par an à mettre à ton nom.
 
@@ -73,7 +73,7 @@ Si tu veux pas, **laisse tomber**, l'adresse actuelle marche parfaitement.
 
 ---
 
-## ❌ Ce que tu peux PAS faire toi-même
+## Ce que tu peux PAS faire toi-même
 
 - Modifier les photos (c'est codé en dur dans le HTML)
 - Changer les prix
@@ -81,11 +81,11 @@ Si tu veux pas, **laisse tomber**, l'adresse actuelle marche parfaitement.
 - Changer l'email de contact
 - Ajouter/supprimer une prestation
 
-**Si tu veux une de ces modifs** → envoie-moi un message WhatsApp avec ce que tu veux changer. Je te facture la modif, je la fais sous 24-48h.
+**Si tu veux une de ces modifs** envoie-moi un message WhatsApp avec ce que tu veux changer. Je te facture la modif, je la fais sous 24-48h.
 
 ---
 
-## 📞 Contact pour les modifs
+## Contact pour les modifs
 
 **Aleks (le mec qui t'a fait le site)**
 - Telegram : @ton_handle (à définir)
@@ -93,7 +93,7 @@ Si tu veux pas, **laisse tomber**, l'adresse actuelle marche parfaitement.
 
 ---
 
-## 🗓️ Résumé court
+## ️ Résumé court
 
 | Action | Qui ? | Quand ? |
 |---|---|---|
@@ -107,4 +107,4 @@ Si tu veux pas, **laisse tomber**, l'adresse actuelle marche parfaitement.
 
 **En bref : ton site est en ligne, il marche, il fait son job. Pour 90% des clientes, il est parfait. Pour les 10% qui te demandent un truc custom, tu m'appelles.**
 
-Bonne continuation avec le salon 🌸
+Bonne continuation avec le salon 
