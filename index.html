@@ -16,13 +16,13 @@
 
 <style>
   /* ============================================================
-     JULIE COIFFURE — TEMPLATE MOCKUP (couleurs à ajuster avec Julie)
-     Palette provisoire : noir profond + doré africain (couleurs chaleur/terre)
-     -> À confirmer avec Julie lors du brief
+     JULIE COIFFURE — V3
+     Sections prestations fusionnées (galerie + réservation)
+     Palette : noir profond + doré africain
      ============================================================ */
   :root {
     --noir: #0F0F0F;
-    --or:   #C9A961;   /* doré africain */
+    --or:   #C9A961;
     --or-light: #E8D4A0;
     --terre: #8B4513;
     --creme: #FBF7F0;
@@ -77,8 +77,7 @@
   /* HERO */
   .hero {
     background:
-      linear-gradient(135deg, rgba(15,15,15,0.85), rgba(139,69,19,0.7)),
-      /* [À REMPLACER] : photo du salon en vrai. En attendant, gradient chaud */;
+      linear-gradient(135deg, rgba(15,15,15,0.85), rgba(139,69,19,0.7));
     color: var(--creme);
     padding: 80px 24px;
     text-align: center;
@@ -119,70 +118,92 @@
     font-family: "Georgia", serif;
     font-size: clamp(1.6em, 3vw, 2.2em);
     color: var(--noir);
-    margin-bottom: 32px;
+    margin-bottom: 8px;
     text-align: center;
   }
   section h2::after {
     content: ""; display: block; width: 60px; height: 3px;
-    background: var(--or); margin: 12px auto 0;
+    background: var(--or); margin: 12px auto 24px;
+  }
+  section .sous-titre {
+    text-align: center; max-width: 680px; margin: 0 auto 32px; color: var(--gris);
   }
 
-  /* PRESTATIONS */
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 20px;
-    margin-top: 32px;
-  }
-  .service {
+  /* PRESTATION = GALERIE + RESA fusionnées */
+  .prestation {
     background: white;
-    padding: 24px;
-    border-radius: 12px;
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 40px;
     box-shadow: var(--shadow);
-    border-top: 3px solid var(--or);
-    transition: transform .2s;
+    border-top: 4px solid var(--or);
   }
-  .service:hover { transform: translateY(-4px); }
-  .service h3 {
-    color: var(--noir);
+  .prestation-head {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    flex-wrap: wrap; gap: 16px;
+    margin-bottom: 24px;
+  }
+  .prestation-head h3 {
     font-family: "Georgia", serif;
-    margin-bottom: 8px;
+    color: var(--noir);
+    font-size: 1.5em;
+    margin-bottom: 4px;
   }
-  .service p { color: var(--gris); font-size: 0.95em; }
-  .service .prix {
+  .prestation-head .prix {
     color: var(--terre);
     font-weight: 600;
-    font-size: 1.1em;
-    margin-top: 12px;
-    display: block;
+    font-size: 1.05em;
+    background: var(--creme);
+    padding: 6px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
   }
-
-  /* GALERIE */
-  .gallery {
+  .prestation-head .duree {
+    color: var(--gris);
+    font-size: 0.95em;
+    margin-top: 4px;
+  }
+  .prestation-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 16px;
-    margin-top: 32px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
   }
-  .gallery-item {
+  .prestation-gallery .gallery-item {
     aspect-ratio: 4/5;
-    border-radius: 12px;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: var(--shadow);
     background: linear-gradient(135deg, #3a3a3a, #1a1a1a);
-    position: relative;
     background-size: cover;
     background-position: center;
+    position: relative;
   }
-  .gallery-item .caption {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.85));
-    color: var(--or-light);
-    padding: 32px 16px 16px;
-    font-size: 0.9em;
-    font-style: italic;
-    text-align: left;
+  .prestation-gallery .gallery-item.placeholder {
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.4); font-style: italic; font-size: 0.85em;
+    text-align: center; padding: 12px;
+  }
+  .prestation-cta {
+    display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+    padding-top: 16px; border-top: 1px solid #eee;
+  }
+  .prestation-cta .btn-wa {
+    background: #25D366; color: white;
+    padding: 12px 20px; border-radius: 24px;
+    text-decoration: none; font-weight: 600; font-size: 0.95em;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .prestation-cta .btn-wa:hover { background: #1ebe5a; }
+  .prestation-cta .btn-cal {
+    background: var(--noir); color: var(--or);
+    padding: 12px 20px; border-radius: 24px;
+    text-decoration: none; font-weight: 600; font-size: 0.95em;
+    display: inline-flex; align-items: center; gap: 6px;
+    border: 1px solid var(--or);
+  }
+  .prestation-cta .btn-cal:hover { background: #1a1a1a; }
+  .prestation-cta .note {
+    color: var(--gris); font-size: 0.85em; font-style: italic; margin-left: auto;
   }
 
   /* AVIS */
@@ -212,7 +233,6 @@
   .avis .auteur { color: var(--or-light); font-weight: 600; }
   .avis .etoiles { color: var(--or); }
   .avis .texte { font-style: italic; opacity: 0.85; }
-  /* [À REMPLACER] : vrais avis Google — ils viendront via Google Places API */
 
   /* CONTACT */
   .contact-grid {
@@ -234,12 +254,9 @@
   .map-placeholder {
     aspect-ratio: 16/9;
     border-radius: 12px;
-    background: linear-gradient(135deg, #e0e0e0, #c0c0c0);
     margin-top: 24px;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--gris); font-style: italic;
+    overflow: hidden;
   }
-  /* [À REMPLACER] : vraie embed Google Maps (iframe Google Maps Embed API) */
 
   /* WHATSAPP FLOTTANT */
   .whatsapp-float {
@@ -261,6 +278,21 @@
     opacity: 0.9;
   }
   footer a { color: var(--or); text-decoration: none; }
+
+  /* AVERTISSEMENT TARIF */
+  .tarif-warn {
+    text-align: center; max-width: 800px; margin: 0 auto 40px;
+    color: var(--gris); font-style: italic;
+    background: var(--creme); padding: 16px; border-radius: 8px;
+    border-left: 3px solid var(--or);
+  }
+  .tarif-warn strong { color: var(--terre); font-style: normal; }
+
+  @media (max-width: 700px) {
+    .prestation-head { flex-direction: column; }
+    .prestation-head .prix { align-self: flex-start; }
+    .prestation-cta .note { margin-left: 0; }
+  }
 </style>
 </head>
 <body>
@@ -273,7 +305,6 @@
   </div>
   <nav>
     <a href="#prestations">Prestations</a>
-    <a href="#galerie">Galerie</a>
     <a href="#apropos">À propos</a>
     <a href="#avis">Avis</a>
     <a href="#contact">Contact</a>
@@ -286,115 +317,281 @@
   <h1>L'art de la coiffure<br>africaine à Fribourg</h1>
   <p class="tagline">Salon privé dédié aux tresses africaines et extensions. Une cliente à la fois — exclusivement féminin.</p>
   <p style="text-align:center; margin-bottom:32px;">
-    <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20prendre%20RDV%20%E2%9C%89%EF%B8%8F" target="_blank" rel="noopener"
-       style="display:inline-block; background:#25D366; color:white; padding:16px 32px; border-radius:32px; font-size:1.15em; font-weight:600; text-decoration:none; box-shadow:0 4px 16px rgba(37,211,102,.3);">
-      💬 Réserver par WhatsApp
+    <a href="#prestations"
+       style="display:inline-block; background:var(--or); color:var(--noir); padding:16px 32px; border-radius:32px; font-size:1.15em; font-weight:600; text-decoration:none;">
+      📅 Voir les prestations & réserver
     </a>
   </p>
-  <div class="services-grid">
-
-    <div class="service">
-      <h3>Tresses Plaqués avec Mèche</h3>
-      <p>Tresses plaquées avec mèche rajout. Tenue longue durée.</p>
-      <span class="prix">À partir de CHF 50 · 1h30</span>
-      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Tresses%20Plaqu%C3%A9s%20avec%20M%C3%A8che*%0A%E2%8F%B3%20Dur%C3%A9e%20%3A%201h30%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%2050%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A"
-         target="_blank" rel="noopener"
-         style="display:inline-block; margin-top:12px; background:#25D366; color:white; padding:8px 16px; border-radius:20px; text-decoration:none; font-size:0.9em; font-weight:600;">
-        💬 Réserver
-      </a>
-    </div>
-
-    <div class="service">
-      <h3>Box Braid / Twist / Knotless / Rasta (Large)</h3>
-      <p>Box braids, twists, knotless ou rasta en format Large. Tenue plusieurs semaines.</p>
-      <span class="prix">À partir de CHF 80 · 3h</span>
-      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Box%20Braid%20%2F%20Twist%20%2F%20Knotless%20%2F%20Rasta%20(Large)*%0A%E2%8F%B3%20Dur%C3%A9e%20%3A%203h%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%2080%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A"
-         target="_blank" rel="noopener"
-         style="display:inline-block; margin-top:12px; background:#25D366; color:white; padding:8px 16px; border-radius:20px; text-decoration:none; font-size:0.9em; font-weight:600;">
-        💬 Réserver
-      </a>
-    </div>
-
-    <div class="service">
-      <h3>Weft Extension — Sans colle (40-55cm)</h3>
-      <p>Pose d'extensions tissées sans colle, longueurs 40 à 55 cm.</p>
-      <span class="prix">À partir de CHF 159 · 2h30</span>
-      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Weft%20Extension%20%E2%80%94%20Sans%20colle%20(40-55cm)*%0A%E2%8F%B3%20Dur%C3%A9e%20%3A%202h30%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20159%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A"
-         target="_blank" rel="noopener"
-         style="display:inline-block; margin-top:12px; background:#25D366; color:white; padding:8px 16px; border-radius:20px; text-decoration:none; font-size:0.9em; font-weight:600;">
-        💬 Réserver
-      </a>
-    </div>
-
-    <div class="service">
-      <h3>Extension au Fil (40-55cm)</h3>
-      <p>Pose d'extensions à la technique du fil, longueurs 40 à 55 cm.</p>
-      <span class="prix">À partir de CHF 250 · 5h</span>
-      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Extension%20au%20Fil%20(40-55cm)*%0A%E2%8F%B3%20Dur%C3%A9e%20%3A%205h%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20250%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A"
-         target="_blank" rel="noopener"
-         style="display:inline-block; margin-top:12px; background:#25D366; color:white; padding:8px 16px; border-radius:20px; text-decoration:none; font-size:0.9em; font-weight:600;">
-        💬 Réserver
-      </a>
-    </div>
-
-    <div class="service">
-      <h3>Consultation avant Braids / Tresses</h3>
-      <p>Premier rendez-vous pour définir la coiffure, la longueur et le type de mèches.</p>
-      <span class="prix">À partir de CHF 1 · 30 min</span>
-      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Consultation%20avant%20Braids%20%2F%20Tresses*%0A%E2%8F%B3%20Dur%C3%A9e%20%3A%2030%20min%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%201%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A"
-         target="_blank" rel="noopener"
-         style="display:inline-block; margin-top:12px; background:#25D366; color:white; padding:8px 16px; border-radius:20px; text-decoration:none; font-size:0.9em; font-weight:600;">
-        💬 Réserver
-      </a>
-    </div>
-
-    <div class="service">
-      <h3>Extensions Cheveux & Braids-Tresses</h3>
-      <p>Plus de 15 prestations d'extensions et 8 modèles de braids/tresses disponibles.</p>
-      <span class="prix">À partir de CHF 1</span>
-      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Extensions%20Cheveux%20%26%20Braids-Tresses*%0A%F0%9F%92%B0%20Prix%20%3A%20sur%20devis%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A"
-         target="_blank" rel="noopener"
-         style="display:inline-block; margin-top:12px; background:#25D366; color:white; padding:8px 16px; border-radius:20px; text-decoration:none; font-size:0.9em; font-weight:600;">
-        💬 Réserver
-      </a>
-    </div>
-
+  <div class="badges">
+    <span class="badge">⭐ 4.8/5 — 41 avis Google</span>
+    <span class="badge">✂️ Une cliente à la fois</span>
+    <span class="badge">👩 Salon exclusivement féminin</span>
   </div>
-  <p style="text-align:center; margin-top:32px; color:var(--gris); font-style:italic;">
-    💬 Réponse rapide par WhatsApp · Une cliente à la fois · Salon exclusivement féminin.<br>
-    <span style="font-style:normal; font-weight:600; color:var(--terre);">⚠️ Tous les prix affichés sont « à partir de » — tarif final communiqué après consultation selon longueur et type de cheveux.</span>
-  </p>
-</section>
+</div>
 
-<!-- GALERIE -->
-<section id="galerie">
-  <h2>Nos réalisations</h2>
-  <p style="text-align:center; max-width:680px; margin:0 auto 12px; color:var(--gris);">
-    Quelques-unes de nos prestations — avant/après, tissages, tresses et soins.
+<!-- PRESTATIONS — sections fusionnées galerie + réservation -->
+<section id="prestations">
+  <h2>Nos prestations</h2>
+  <p class="sous-titre">
+    Tresses, braids, locks, extensions, perruques — chaque prestation est présentée avec ses réalisations et un bouton de réservation direct.
   </p>
-  <div class="gallery">
-    <div class="gallery-item" style="background-image: url('images/julie-1.jpg');">
-      <div class="caption">✂️ Avant / Après — Extension au fil blonde</div>
+  <p class="tarif-warn">
+    ⚠️ <strong>Tous les prix affichés sont « à partir de »</strong> — tarif final communiqué après consultation selon longueur, densité et type de cheveux.
+  </p>
+
+  <!-- ========== TRESSES ========== -->
+
+  <!-- Catégorie 1 -->
+  <div class="prestation" id="tresse-plaquee">
+    <div class="prestation-head">
+      <div>
+        <h3>Tresse plaquée · Passe-mèche</h3>
+        <div class="duree">⏱ Durée : ~1h30</div>
+      </div>
+      <span class="prix">À partir de CHF 150</span>
     </div>
-    <div class="gallery-item" style="background-image: url('images/julie-2.jpg');">
-      <div class="caption">✂️ Weft Extension sans colle — micro-rings invisibles</div>
+    <div class="prestation-gallery">
+      <div class="gallery-item placeholder">[photo tresse plaquée 1]</div>
+      <div class="gallery-item placeholder">[photo tresse plaquée 2]</div>
+      <div class="gallery-item placeholder">[photo tresse plaquée 3]</div>
+      <div class="gallery-item placeholder">[photo tresse plaquée 4]</div>
+      <div class="gallery-item placeholder">[photo tresse plaquée 5]</div>
     </div>
-    <div class="gallery-item" style="background-image: url('images/julie-3.jpg');">
-      <div class="caption">✂️ Avant / Après — Volume et définition curls</div>
-    </div>
-    <div class="gallery-item" style="background-image: url('images/julie-4.jpg');">
-      <div class="caption">✂️ Box Braid Large — tenue plusieurs semaines</div>
-    </div>
-    <div class="gallery-item" style="background-image: url('images/julie-5.jpg');">
-      <div class="caption">✂️ Tresses Plaqués avec Mèche — finition nette</div>
-    </div>
-    <div class="gallery-item" style="background-image: url('images/julie-6.jpg');">
-      <div class="caption">✂️ Pose d'extensions — résultat naturel</div>
-    </div>
-    <div class="gallery-item" style="background-image: url('images/julie-7.jpg');">
-      <div class="caption">✂️ Braids / Tresses — technique maîtrisée</div>
+    <div class="prestation-cta">
+      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Tresse%20plaqu%C3%A9e%20%2F%20Passe-m%C3%A8che*%0A%E2%8F%B3%20Dur%C3%A9e%20%3A%201h30%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20150%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
+      <a href="https://cal.com/naza-rick-qwbc0k" target="_blank" rel="noopener" class="btn-cal">📅 Réserver sur Cal.com</a>
+      <span class="note">Réponse généralement sous 1h</span>
     </div>
   </div>
+
+  <!-- Catégorie 2 -->
+  <div class="prestation" id="box-braid">
+    <div class="prestation-head">
+      <div>
+        <h3>Box braid / Twist / Knotless (sans nœuds) / Rasta — petit, moyen, large</h3>
+        <div class="duree">⏱ Durée : ~3h</div>
+      </div>
+      <span class="prix">À partir de CHF 200</span>
+    </div>
+    <div class="prestation-gallery">
+      <div class="gallery-item placeholder">[photo box braid petit]</div>
+      <div class="gallery-item placeholder">[photo box braid moyen]</div>
+      <div class="gallery-item placeholder">[photo box braid large]</div>
+      <div class="gallery-item placeholder">[photo twist]</div>
+      <div class="gallery-item placeholder">[photo knotless]</div>
+      <div class="gallery-item placeholder">[photo rasta]</div>
+    </div>
+    <div class="prestation-cta">
+      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Box%20braid%20%2F%20Twist%20%2F%20Knotless%20%2F%20Rasta*%0A%E2%8F%B3%20Dur%C3%A9e%20%3A%203h%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20200%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
+      <a href="https://cal.com/naza-rick-qwbc0k" target="_blank" rel="noopener" class="btn-cal">📅 Réserver sur Cal.com</a>
+      <span class="note">Précisez petit / moyen / large à la réservation</span>
+    </div>
+  </div>
+
+  <!-- Catégorie 3 — Locks / Locs -->
+  <div class="prestation" id="locks">
+    <div class="prestation-head">
+      <div>
+        <h3>Locks / Locs</h3>
+        <div class="duree">⏱ Durée : variable selon longueur</div>
+      </div>
+      <span class="prix">À partir de CHF 250</span>
+    </div>
+    <div class="prestation-gallery">
+      <div class="gallery-item placeholder">[photo locks 1]</div>
+      <div class="gallery-item placeholder">[photo locks 2]</div>
+      <div class="gallery-item placeholder">[photo locks 3]</div>
+    </div>
+    <div class="prestation-cta">
+      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Locks%20%2F%20Locs*%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20250%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
+      <a href="https://cal.com/naza-rick-qwbc0k" target="_blank" rel="noopener" class="btn-cal">📅 Réserver sur Cal.com</a>
+    </div>
+  </div>
+
+  <!-- Catégorie 4 — Boho braid / Crochet -->
+  <div class="prestation" id="boho-crochet">
+    <div class="prestation-head">
+      <div>
+        <h3>Boho braid / Crochet</h3>
+        <div class="duree">⏱ Durée : variable</div>
+      </div>
+      <span class="prix">À partir de CHF 250</span>
+    </div>
+    <div class="prestation-gallery">
+      <div class="gallery-item placeholder">[photo boho braid 1]</div>
+      <div class="gallery-item placeholder">[photo boho braid 2]</div>
+      <div class="gallery-item placeholder">[photo boho braid 3]</div>
+      <div class="gallery-item placeholder">[photo crochet 1]</div>
+      <div class="gallery-item placeholder">[photo crochet 2]</div>
+    </div>
+    <div class="prestation-cta">
+      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Boho%20braid%20%2F%20Crochet*%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20250%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
+      <a href="https://cal.com/naza-rick-qwbc0k" target="_blank" rel="noopener" class="btn-cal">📅 Réserver sur Cal.com</a>
+    </div>
+  </div>
+
+  <!-- Catégorie 5 — Dread locs / Sister / Micro / Micro twist -->
+  <div class="prestation" id="dread-locs">
+    <div class="prestation-head">
+      <div>
+        <h3>Dread locs / Sister locs / Micro locs / Micro twist</h3>
+        <div class="duree">⏱ Durée : variable selon méthode</div>
+      </div>
+      <span class="prix">À partir de CHF 250</span>
+    </div>
+    <div class="prestation-gallery">
+      <div class="gallery-item placeholder">[photo dread locs 1]</div>
+      <div class="gallery-item placeholder">[photo sister locs]</div>
+      <div class="gallery-item placeholder">[photo micro locs]</div>
+      <div class="gallery-item placeholder">[photo micro twist]</div>
+    </div>
+    <div class="prestation-cta">
+      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Dread%20locs%20%2F%20Sister%20locs%20%2F%20Micro%20locs%20%2F%20Micro%20twist*%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20250%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
+      <a href="https://cal.com/naza-rick-qwbc0k" target="_blank" rel="noopener" class="btn-cal">📅 Réserver sur Cal.com</a>
+    </div>
+  </div>
+
+  <!-- ========== EXTENSIONS ========== -->
+
+  <!-- Catégorie 6 — Tissage -->
+  <div class="prestation" id="tissage">
+    <div class="prestation-head">
+      <div>
+        <h3>Tissage (fermé / ouvert / milieu)</h3>
+        <div class="duree">⏱ Durée : ~2h30</div>
+      </div>
+      <span class="prix">À partir de CHF 180</span>
+    </div>
+    <div class="prestation-gallery">
+      <div class="gallery-item placeholder">[photo tissage fermé]</div>
+      <div class="gallery-item placeholder">[photo tissage ouvert]</div>
+      <div class="gallery-item placeholder">[photo tissage milieu]</div>
+    </div>
+    <div class="prestation-cta">
+      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Tissage%20(ferm%C3%A9%20%2F%20ouvert%20%2F%20milieu)*%0A%E2%8F%B3%20Dur%C3%A9e%20%3A%202h30%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20180%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
+      <a href="https://cal.com/naza-rick-qwbc0k" target="_blank" rel="noopener" class="btn-cal">📅 Réserver sur Cal.com</a>
+    </div>
+  </div>
+
+  <!-- Catégorie 7 — Extension au fil / piqué / lâché -->
+  <div class="prestation" id="extension-fil">
+    <div class="prestation-head">
+      <div>
+        <h3>Extension au fil / piqué / lâché / crochet</h3>
+        <div class="duree">⏱ Durée : ~5h</div>
+      </div>
+      <span class="prix">À partir de CHF 200</span>
+    </div>
+    <div class="prestation-gallery">
+      <div class="gallery-item placeholder">[photo extension au fil]</div>
+      <div class="gallery-item placeholder">[photo extension piqué]</div>
+      <div class="gallery-item placeholder">[photo extension lâché]</div>
+      <div class="gallery-item placeholder">[photo extension crochet]</div>
+    </div>
+    <div class="prestation-cta">
+      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Extension%20au%20fil%20%2F%20piqu%C3%A9%20%2F%20l%C3%A2ch%C3%A9%20%2F%20crochet*%0A%E2%8F%B3%20Dur%C3%A9e%20%3A%205h%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20200%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
+      <a href="https://cal.com/naza-rick-qwbc0k" target="_blank" rel="noopener" class="btn-cal">📅 Réserver sur Cal.com</a>
+    </div>
+  </div>
+
+  <!-- Catégorie 8 — Weft sans colle / microring -->
+  <div class="prestation" id="weft">
+    <div class="prestation-head">
+      <div>
+        <h3>Weft extension sans colle / Microring</h3>
+        <div class="duree">⏱ Durée : ~2h30</div>
+      </div>
+      <span class="prix">À partir de CHF 220</span>
+    </div>
+    <div class="prestation-gallery">
+      <div class="gallery-item placeholder">[photo weft sans colle]</div>
+      <div class="gallery-item placeholder">[photo microring 1]</div>
+      <div class="gallery-item placeholder">[photo microring 2]</div>
+    </div>
+    <div class="prestation-cta">
+      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Weft%20extension%20sans%20colle%20%2F%20Microring*%0A%E2%8F%B3%20Dur%C3%A9e%20%3A%202h30%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20220%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
+      <a href="https://cal.com/naza-rick-qwbc0k" target="_blank" rel="noopener" class="btn-cal">📅 Réserver sur Cal.com</a>
+    </div>
+  </div>
+
+  <!-- Catégorie 9 — Tip extension -->
+  <div class="prestation" id="tip">
+    <div class="prestation-head">
+      <div>
+        <h3>Tip extension</h3>
+        <div class="duree">⏱ Durée : variable</div>
+      </div>
+      <span class="prix">À partir de CHF 250</span>
+    </div>
+    <div class="prestation-gallery">
+      <div class="gallery-item placeholder">[photo tip extension 1]</div>
+      <div class="gallery-item placeholder">[photo tip extension 2]</div>
+      <div class="gallery-item placeholder">[photo tip extension 3]</div>
+    </div>
+    <div class="prestation-cta">
+      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Tip%20extension*%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20250%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
+      <a href="https://cal.com/naza-rick-qwbc0k" target="_blank" rel="noopener" class="btn-cal">📅 Réserver sur Cal.com</a>
+    </div>
+  </div>
+
+  <!-- Catégorie 10 — Kératine avec colle -->
+  <div class="prestation" id="keratine">
+    <div class="prestation-head">
+      <div>
+        <h3>Extension Kératine (avec colle)</h3>
+        <div class="duree">⏱ Durée : variable</div>
+      </div>
+      <span class="prix">À partir de CHF 300</span>
+    </div>
+    <div class="prestation-gallery">
+      <div class="gallery-item placeholder">[photo kératine 1]</div>
+      <div class="gallery-item placeholder">[photo kératine 2]</div>
+      <div class="gallery-item placeholder">[photo kératine 3]</div>
+    </div>
+    <div class="prestation-cta">
+      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Extension%20K%C3%A9ratine%20(avec%20colle)*%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20300%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
+      <a href="https://cal.com/naza-rick-qwbc0k" target="_blank" rel="noopener" class="btn-cal">📅 Réserver sur Cal.com</a>
+    </div>
+  </div>
+
+  <!-- Catégorie 11 — Pose perruque -->
+  <div class="prestation" id="lace-wig">
+    <div class="prestation-head">
+      <div>
+        <h3>Pose perruque lace wigs (avec / sans colle)</h3>
+        <div class="duree">⏱ Durée : variable</div>
+      </div>
+      <span class="prix">À partir de CHF 170</span>
+    </div>
+    <div class="prestation-gallery">
+      <div class="gallery-item placeholder">[photo lace wig avec colle]</div>
+      <div class="gallery-item placeholder">[photo lace wig sans colle]</div>
+      <div class="gallery-item placeholder">[photo lace wig 3]</div>
+    </div>
+    <div class="prestation-cta">
+      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Pose%20perruque%20lace%20wigs*%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20170%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
+      <a href="https://cal.com/naza-rick-qwbc0k" target="_blank" rel="noopener" class="btn-cal">📅 Réserver sur Cal.com</a>
+    </div>
+  </div>
+
+  <!-- Consultation -->
+  <div class="prestation" id="consultation">
+    <div class="prestation-head">
+      <div>
+        <h3>Consultation avant Braids / Tresses</h3>
+        <div class="duree">⏱ Durée : 30 min · 💰 Offerte si RDV confirmé</div>
+      </div>
+      <span class="prix">Gratuit</span>
+    </div>
+    <p style="color:var(--gris); margin-bottom:16px;">
+      Premier rendez-vous pour définir la coiffure, la longueur, le type de mèches, et estimer le tarif final selon votre type de cheveux.
+    </p>
+    <div class="prestation-cta">
+      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20une%20consultation%20avant%20RDV%20%E2%9C%89%EF%B8%8F%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
+      <a href="https://cal.com/naza-rick-qwbc0k" target="_blank" rel="noopener" class="btn-cal">📅 Réserver sur Cal.com</a>
+    </div>
+  </div>
+
 </section>
 
 <!-- A PROPOS -->
@@ -455,7 +652,7 @@
 <!-- CONTACT -->
 <section id="contact">
   <h2>Prendre rendez-vous</h2>
-  <p style="text-align:center; max-width:680px; margin:0 auto 24px; color:var(--gris);">
+  <p class="sous-titre">
     💬 Le moyen le plus rapide pour réserver — Julie répond généralement sous 1h.
   </p>
   <div style="text-align:center; margin-bottom:24px; display:flex; flex-wrap:wrap; gap:14px; justify-content:center; align-items:center;">
@@ -513,10 +710,8 @@
   💬
 </a>
 
-<!-- (Cal.com embed removed — WhatsApp-only for now) -->
-
 <footer>
-  <p>© 2026 Julie Coiffure - Tresses africaines & Extensions · Site créé par 
+  <p>© 2026 Julie Coiffure - Tresses africaines & Extensions · Site créé par
     <a href="https://handsonnazarick.github.io/ainz-webdesign/" target="_blank" rel="noopener">Ainz Web Design</a>
   </p>
 </footer>
