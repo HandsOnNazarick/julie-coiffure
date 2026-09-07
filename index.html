@@ -174,9 +174,10 @@
     border-radius: 10px;
     overflow: hidden;
     background: linear-gradient(135deg, #3a3a3a, #1a1a1a);
-    background-size: cover;
-    background-position: center;
-    position: relative;
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    display: block;
     transition: transform 0.3s;
   }
   .prestation-gallery .gallery-item:hover { transform: scale(1.03); }
@@ -285,10 +286,50 @@
   }
   .tarif-warn strong { color: var(--terre); font-style: normal; }
 
+  /* MINI-NAV PRESTATIONS (jump rapide) */
+  .prestations-nav {
+    display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+    margin: 0 auto 32px; max-width: 900px;
+    padding: 12px; background: white; border-radius: 12px;
+    box-shadow: var(--shadow);
+  }
+  .prestations-nav a {
+    background: var(--creme); color: var(--noir);
+    padding: 8px 14px; border-radius: 20px;
+    font-size: 0.85em; text-decoration: none;
+    border: 1px solid transparent;
+    transition: all .2s;
+    white-space: nowrap;
+  }
+  .prestations-nav a:hover { background: var(--or); color: var(--noir); border-color: var(--terre); }
+  .prestations-nav a.anchor-tres { background: #FBF7F0; border-color: #8B4513; }
+  .prestations-nav a.anchor-ext { background: #F8F4E8; border-color: #C9A961; }
+
+  /* GALERIE VIDE / FALLBACK */
+  .gallery-empty {
+    aspect-ratio: 4/5;
+    background: linear-gradient(135deg, var(--creme), #EFE9DC);
+    border: 2px dashed var(--or);
+    border-radius: 10px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: var(--gris); font-style: italic; font-size: 0.9em;
+    text-align: center; padding: 20px;
+  }
+  .gallery-empty::before { content: "📸"; font-size: 2em; font-style: normal; margin-bottom: 8px; }
+
+  /* COMPTEUR PHOTOS */
+  .photo-count {
+    display: inline-block; background: var(--noir); color: var(--or-light);
+    padding: 2px 10px; border-radius: 12px; font-size: 0.75em; margin-left: 8px;
+    vertical-align: middle;
+  }
+
   @media (max-width: 700px) {
     .prestation-head { flex-direction: column; }
     .prestation-head .prix { align-self: flex-start; }
     .prestation-cta .note { margin-left: 0; }
+    .prestations-nav { gap: 6px; padding: 8px; }
+    .prestations-nav a { padding: 6px 10px; font-size: 0.78em; }
   }
 </style>
 </head>
@@ -336,24 +377,40 @@
     ⚠️ <strong>Tous les prix affichés sont « à partir de »</strong> — tarif final communiqué après consultation selon longueur, densité et type de cheveux.
   </p>
 
+  <!-- MINI-NAV pour saut rapide -->
+  <nav class="prestations-nav" aria-label="Navigation prestations">
+    <a href="#tresse-plaquee" class="anchor-tres">Tresses plaquées</a>
+    <a href="#box-braid" class="anchor-tres">Box braid</a>
+    <a href="#locks" class="anchor-tres">Locks</a>
+    <a href="#boho-crochet" class="anchor-tres">Boho / Crochet</a>
+    <a href="#dread-locs" class="anchor-tres">Dread locs</a>
+    <a href="#tissage" class="anchor-ext">Tissage</a>
+    <a href="#weft" class="anchor-ext">Weft</a>
+    <a href="#tip" class="anchor-ext">Tip extension</a>
+    <a href="#keratine" class="anchor-ext">Kératine</a>
+    <a href="#lace-wig" class="anchor-ext">Lace wigs</a>
+    <a href="#extension-fil" class="anchor-ext">Extension fil</a>
+    <a href="#consultation">Consultation</a>
+  </nav>
+
   <!-- ========== TRESSES ========== -->
 
   <!-- Catégorie 1 -->
   <div class="prestation" id="tresse-plaquee">
     <div class="prestation-head">
       <div>
-        <h3>Tresse plaquée · Passe-mèche</h3>
+        <h3>Tresse plaquée · Passe-mèche <span class="photo-count">6 photos</span></h3>
         <div class="duree">⏱ Durée : ~1h30</div>
       </div>
       <span class="prix">À partir de CHF 150</span>
     </div>
     <div class="prestation-gallery">
-      <div class="gallery-item" style="background-image: url('images/categories/tresse-plaquee/1.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/tresse-plaquee/2.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/tresse-plaquee/3.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/tresse-plaquee/4.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/tresse-plaquee/5.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/tresse-plaquee/6.jpg');"></div>
+      <img class="gallery-item" src="images/categories/tresse-plaquee/1.jpg" alt="Julie Coiffure - tresse-plaquee exemple 1" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/tresse-plaquee/2.jpg" alt="Julie Coiffure - tresse-plaquee exemple 2" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/tresse-plaquee/3.jpg" alt="Julie Coiffure - tresse-plaquee exemple 3" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/tresse-plaquee/4.jpg" alt="Julie Coiffure - tresse-plaquee exemple 4" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/tresse-plaquee/5.jpg" alt="Julie Coiffure - tresse-plaquee exemple 5" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/tresse-plaquee/6.jpg" alt="Julie Coiffure - tresse-plaquee exemple 6" loading="lazy" decoding="async">
     </div>
     <div class="prestation-cta">
       <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Tresse%20plaqu%C3%A9e%20%2F%20Passe-m%C3%A8che*%0A%E2%8F%B3%20Dur%C3%A9e%20%3A%201h30%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20150%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
@@ -366,18 +423,18 @@
   <div class="prestation" id="box-braid">
     <div class="prestation-head">
       <div>
-        <h3>Box braid / Twist / Knotless (sans nœuds) / Rasta — petit, moyen, large</h3>
+        <h3>Box braid / Twist / Knotless (sans nœuds) / Rasta — petit, moyen, large <span class="photo-count">6 photos</span></h3>
         <div class="duree">⏱ Durée : ~3h</div>
       </div>
       <span class="prix">À partir de CHF 200</span>
     </div>
     <div class="prestation-gallery">
-      <div class="gallery-item" style="background-image: url('images/categories/box-braid/1.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/box-braid/2.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/box-braid/3.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/box-braid/4.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/box-braid/5.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/box-braid/6.jpg');"></div>
+      <img class="gallery-item" src="images/categories/box-braid/1.jpg" alt="Julie Coiffure - box-braid exemple 1" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/box-braid/2.jpg" alt="Julie Coiffure - box-braid exemple 2" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/box-braid/3.jpg" alt="Julie Coiffure - box-braid exemple 3" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/box-braid/4.jpg" alt="Julie Coiffure - box-braid exemple 4" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/box-braid/5.jpg" alt="Julie Coiffure - box-braid exemple 5" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/box-braid/6.jpg" alt="Julie Coiffure - box-braid exemple 6" loading="lazy" decoding="async">
     </div>
     <div class="prestation-cta">
       <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Box%20braid%20%2F%20Twist%20%2F%20Knotless%20%2F%20Rasta*%0A%E2%8F%B3%20Dur%C3%A9e%20%3A%203h%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20200%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
@@ -390,14 +447,14 @@
   <div class="prestation" id="locks">
     <div class="prestation-head">
       <div>
-        <h3>Locks / Locs</h3>
+        <h3>Locks / Locs <span class="photo-count">2 photos</span></h3>
         <div class="duree">⏱ Durée : variable selon longueur</div>
       </div>
       <span class="prix">À partir de CHF 250</span>
     </div>
     <div class="prestation-gallery">
-      <div class="gallery-item" style="background-image: url('images/categories/locks/1.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/locks/2.jpg');"></div>
+      <img class="gallery-item" src="images/categories/locks/1.jpg" alt="Julie Coiffure - locks exemple 1" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/locks/2.jpg" alt="Julie Coiffure - locks exemple 2" loading="lazy" decoding="async">
     </div>
     <div class="prestation-cta">
       <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Locks%20%2F%20Locs*%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20250%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
@@ -409,18 +466,18 @@
   <div class="prestation" id="boho-crochet">
     <div class="prestation-head">
       <div>
-        <h3>Boho braid / Crochet</h3>
+        <h3>Boho braid / Crochet <span class="photo-count">6 photos</span></h3>
         <div class="duree">⏱ Durée : variable</div>
       </div>
       <span class="prix">À partir de CHF 250</span>
     </div>
     <div class="prestation-gallery">
-      <div class="gallery-item" style="background-image: url('images/categories/boho-crochet/1.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/boho-crochet/2.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/boho-crochet/3.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/boho-crochet/4.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/boho-crochet/5.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/boho-crochet/6.jpg');"></div>
+      <img class="gallery-item" src="images/categories/boho-crochet/1.jpg" alt="Julie Coiffure - boho-crochet exemple 1" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/boho-crochet/2.jpg" alt="Julie Coiffure - boho-crochet exemple 2" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/boho-crochet/3.jpg" alt="Julie Coiffure - boho-crochet exemple 3" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/boho-crochet/4.jpg" alt="Julie Coiffure - boho-crochet exemple 4" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/boho-crochet/5.jpg" alt="Julie Coiffure - boho-crochet exemple 5" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/boho-crochet/6.jpg" alt="Julie Coiffure - boho-crochet exemple 6" loading="lazy" decoding="async">
     </div>
     <div class="prestation-cta">
       <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Boho%20braid%20%2F%20Crochet*%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20250%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
@@ -432,18 +489,18 @@
   <div class="prestation" id="dread-locs">
     <div class="prestation-head">
       <div>
-        <h3>Dread locs / Sister locs / Micro locs / Micro twist</h3>
+        <h3>Dread locs / Sister locs / Micro locs / Micro twist <span class="photo-count">6 photos</span></h3>
         <div class="duree">⏱ Durée : variable selon méthode</div>
       </div>
       <span class="prix">À partir de CHF 250</span>
     </div>
     <div class="prestation-gallery">
-      <div class="gallery-item" style="background-image: url('images/categories/dread-locs/1.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/dread-locs/2.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/dread-locs/3.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/dread-locs/4.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/dread-locs/5.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/dread-locs/6.jpg');"></div>
+      <img class="gallery-item" src="images/categories/dread-locs/1.jpg" alt="Julie Coiffure - dread-locs exemple 1" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/dread-locs/2.jpg" alt="Julie Coiffure - dread-locs exemple 2" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/dread-locs/3.jpg" alt="Julie Coiffure - dread-locs exemple 3" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/dread-locs/4.jpg" alt="Julie Coiffure - dread-locs exemple 4" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/dread-locs/5.jpg" alt="Julie Coiffure - dread-locs exemple 5" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/dread-locs/6.jpg" alt="Julie Coiffure - dread-locs exemple 6" loading="lazy" decoding="async">
     </div>
     <div class="prestation-cta">
       <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Dread%20locs%20%2F%20Sister%20locs%20%2F%20Micro%20locs%20%2F%20Micro%20twist*%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20250%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
@@ -457,17 +514,17 @@
   <div class="prestation" id="tissage">
     <div class="prestation-head">
       <div>
-        <h3>Tissage (fermé / ouvert / milieu)</h3>
+        <h3>Tissage (fermé / ouvert / milieu) <span class="photo-count">5 photos</span></h3>
         <div class="duree">⏱ Durée : ~2h30</div>
       </div>
       <span class="prix">À partir de CHF 180</span>
     </div>
     <div class="prestation-gallery">
-      <div class="gallery-item" style="background-image: url('images/categories/tissage/1.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/tissage/2.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/tissage/3.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/tissage/4.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/tissage/5.jpg');"></div>
+      <img class="gallery-item" src="images/categories/tissage/1.jpg" alt="Julie Coiffure - tissage exemple 1" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/tissage/2.jpg" alt="Julie Coiffure - tissage exemple 2" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/tissage/3.jpg" alt="Julie Coiffure - tissage exemple 3" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/tissage/4.jpg" alt="Julie Coiffure - tissage exemple 4" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/tissage/5.jpg" alt="Julie Coiffure - tissage exemple 5" loading="lazy" decoding="async">
     </div>
     <div class="prestation-cta">
       <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Tissage%20(ferm%C3%A9%20%2F%20ouvert%20%2F%20milieu)*%0A%E2%8F%B3%20Dur%C3%A9e%20%3A%202h30%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20180%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
@@ -479,17 +536,17 @@
   <div class="prestation" id="weft">
     <div class="prestation-head">
       <div>
-        <h3>Weft extension sans colle / Microring</h3>
+        <h3>Weft extension sans colle / Microring <span class="photo-count">5 photos</span></h3>
         <div class="duree">⏱ Durée : ~2h30</div>
       </div>
       <span class="prix">À partir de CHF 220</span>
     </div>
     <div class="prestation-gallery">
-      <div class="gallery-item" style="background-image: url('images/categories/weft/1.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/weft/2.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/weft/3.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/weft/4.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/weft/5.jpg');"></div>
+      <img class="gallery-item" src="images/categories/weft/1.jpg" alt="Julie Coiffure - weft exemple 1" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/weft/2.jpg" alt="Julie Coiffure - weft exemple 2" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/weft/3.jpg" alt="Julie Coiffure - weft exemple 3" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/weft/4.jpg" alt="Julie Coiffure - weft exemple 4" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/weft/5.jpg" alt="Julie Coiffure - weft exemple 5" loading="lazy" decoding="async">
     </div>
     <div class="prestation-cta">
       <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Weft%20extension%20sans%20colle%20%2F%20Microring*%0A%E2%8F%B3%20Dur%C3%A9e%20%3A%202h30%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20220%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
@@ -506,9 +563,7 @@
       </div>
       <span class="prix">À partir de CHF 250</span>
     </div>
-    <p style="color:var(--gris); margin-bottom:16px; font-style:italic;">
-      Pose par micro-anneaux ou kératine froide sans colle chaude. Demandez à Julie de vous montrer son book photos lors de la consultation.
-    </p>
+    <div class="gallery-empty">Photos sur demande<br><span style="font-size:.8em;">Demandez le book à Julie</span></div>
     <div class="prestation-cta">
       <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Tip%20extension%20(I-tip%20%2F%20U-tip)*%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20250%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
       <a href="https://cal.com/naza-rick-qwbc0k" target="_blank" rel="noopener" class="btn-cal">📅 Réserver sur Cal.com</a>
@@ -519,16 +574,16 @@
   <div class="prestation" id="keratine">
     <div class="prestation-head">
       <div>
-        <h3>Extension Kératine (avec colle chaude)</h3>
+        <h3>Extension Kératine (avec colle chaude) <span class="photo-count">4 photos</span></h3>
         <div class="duree">⏱ Durée : variable</div>
       </div>
       <span class="prix">À partir de CHF 300</span>
     </div>
     <div class="prestation-gallery">
-      <div class="gallery-item" style="background-image: url('images/categories/keratine/1.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/keratine/2.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/keratine/3.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/keratine/4.jpg');"></div>
+      <img class="gallery-item" src="images/categories/keratine/1.jpg" alt="Julie Coiffure - keratine exemple 1" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/keratine/2.jpg" alt="Julie Coiffure - keratine exemple 2" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/keratine/3.jpg" alt="Julie Coiffure - keratine exemple 3" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/keratine/4.jpg" alt="Julie Coiffure - keratine exemple 4" loading="lazy" decoding="async">
     </div>
     <div class="prestation-cta">
       <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Extension%20K%C3%A9ratine%20(avec%20colle)*%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20300%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
@@ -540,14 +595,14 @@
   <div class="prestation" id="lace-wig">
     <div class="prestation-head">
       <div>
-        <h3>Pose perruque lace wigs (avec / sans colle)</h3>
+        <h3>Pose perruque lace wigs (avec / sans colle) <span class="photo-count">2 photos</span></h3>
         <div class="duree">⏱ Durée : variable</div>
       </div>
       <span class="prix">À partir de CHF 170</span>
     </div>
     <div class="prestation-gallery">
-      <div class="gallery-item" style="background-image: url('images/categories/lace-wig/1.jpg');"></div>
-      <div class="gallery-item" style="background-image: url('images/categories/lace-wig/2.jpg');"></div>
+      <img class="gallery-item" src="images/categories/lace-wig/1.jpg" alt="Julie Coiffure - lace-wig exemple 1" loading="lazy" decoding="async">
+      <img class="gallery-item" src="images/categories/lace-wig/2.jpg" alt="Julie Coiffure - lace-wig exemple 2" loading="lazy" decoding="async">
     </div>
     <div class="prestation-cta">
       <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Pose%20perruque%20lace%20wigs*%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20170%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
@@ -564,9 +619,7 @@
       </div>
       <span class="prix">À partir de CHF 200</span>
     </div>
-    <p style="color:var(--gris); margin-bottom:16px; font-style:italic;">
-      Technique d'attache au fil pour un résultat naturel et durable. Voir aussi la section <a href="#weft" style="color:var(--terre);">Weft extension</a> pour les versions sans colle.
-    </p>
+    <div class="gallery-empty">Photos sur demande<br><span style="font-size:.8em;">Technique d'attache au fil</span></div>
     <div class="prestation-cta">
       <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Extension%20au%20fil%20%2F%20piqu%C3%A9%20%2F%20l%C3%A2ch%C3%A9*%0A%E2%8F%B3%20Dur%C3%A9e%20%3A%205h%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20200%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
       <a href="https://cal.com/naza-rick-qwbc0k" target="_blank" rel="noopener" class="btn-cal">📅 Réserver sur Cal.com</a>
