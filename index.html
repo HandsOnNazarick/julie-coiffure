@@ -181,6 +181,45 @@
     transition: transform 0.3s;
   }
   .prestation-gallery .gallery-item:hover { transform: scale(1.03); }
+
+  /* DETAILS + COVER PHOTO CLIQUABLE */
+  .prestation-details { margin-bottom: 24px; }
+  .prestation-details summary {
+    list-style: none;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, #3a3a3a, #1a1a1a);
+    box-shadow: 0 6px 20px -8px rgba(0,0,0,.25);
+  }
+  .prestation-details summary::-webkit-details-marker { display: none; }
+  .prestation-details summary img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform .4s;
+  }
+  .prestation-details summary:hover img { transform: scale(1.05); }
+  .prestation-details summary .cover-overlay {
+    position: absolute; bottom: 12px; left: 12px;
+    background: rgba(15,15,15,0.85);
+    color: var(--or-light);
+    padding: 8px 16px;
+    border-radius: 24px;
+    font-size: 0.9em; font-weight: 600;
+    backdrop-filter: blur(4px);
+    border: 1px solid var(--or);
+    pointer-events: none;
+  }
+  .prestation-details[open] summary {
+    aspect-ratio: auto;
+    margin-bottom: 16px;
+  }
+  .prestation-details[open] summary .cover-overlay::after {
+    content: " — cliquez pour réduire";
+    font-weight: 400; font-size: 0.85em; opacity: 0.7;
+  }
   .prestation-cta {
     display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
     padding-top: 16px; border-top: 1px solid #eee;
@@ -192,15 +231,7 @@
     display: inline-flex; align-items: center; gap: 6px;
   }
   .prestation-cta .btn-wa:hover { background: #1ebe5a; }
-  .prestation-cta .btn-cal {
-    background: var(--noir); color: var(--or);
-    padding: 12px 20px; border-radius: 24px;
-    text-decoration: none; font-weight: 600; font-size: 0.95em;
-    display: inline-flex; align-items: center; gap: 6px;
-    border: 1px solid var(--or);
-  }
-  .prestation-cta .btn-cal:hover { background: #1a1a1a; }
-  .prestation-cta .note {
+.prestation-cta .note {
     color: var(--gris); font-size: 0.85em; font-style: italic; margin-left: auto;
   }
 
@@ -404,17 +435,22 @@
       </div>
       <span class="prix">À partir de CHF 150</span>
     </div>
-    <div class="prestation-gallery">
-      <img class="gallery-item" src="images/categories/tresse-plaquee/1.jpg" alt="Julie Coiffure - tresse-plaquee exemple 1" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/tresse-plaquee/2.jpg" alt="Julie Coiffure - tresse-plaquee exemple 2" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/tresse-plaquee/3.jpg" alt="Julie Coiffure - tresse-plaquee exemple 3" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/tresse-plaquee/4.jpg" alt="Julie Coiffure - tresse-plaquee exemple 4" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/tresse-plaquee/5.jpg" alt="Julie Coiffure - tresse-plaquee exemple 5" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/tresse-plaquee/6.jpg" alt="Julie Coiffure - tresse-plaquee exemple 6" loading="lazy" decoding="async">
-    </div>
+    <details class="prestation-details">
+  <summary class="gallery-cover">
+    <img src="images/categories/tresse-plaquee/1.jpg" alt="Julie Coiffure - tresse-plaquee - cliquer pour voir toutes les photos" loading="lazy" decoding="async">
+    <span class="cover-overlay">📸 Voir les 6 photos</span>
+  </summary>
+  <div class="prestation-gallery">
+        <img class="gallery-item" src="images/categories/tresse-plaquee/1.jpg" alt="Julie Coiffure - tresse-plaquee exemple 1" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/tresse-plaquee/2.jpg" alt="Julie Coiffure - tresse-plaquee exemple 2" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/tresse-plaquee/3.jpg" alt="Julie Coiffure - tresse-plaquee exemple 3" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/tresse-plaquee/4.jpg" alt="Julie Coiffure - tresse-plaquee exemple 4" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/tresse-plaquee/5.jpg" alt="Julie Coiffure - tresse-plaquee exemple 5" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/tresse-plaquee/6.jpg" alt="Julie Coiffure - tresse-plaquee exemple 6" loading="lazy" decoding="async">
+  </div>
+</details>
     <div class="prestation-cta">
       <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Tresse%20plaqu%C3%A9e%20%2F%20Passe-m%C3%A8che*%0A%E2%8F%B3%20Dur%C3%A9e%20%3A%201h30%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20150%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
-      <a href="https://cal.com/naza-rick-qwbc0k" target="_blank" rel="noopener" class="btn-cal">📅 Réserver sur Cal.com</a>
       <span class="note">Réponse généralement sous 1h</span>
     </div>
   </div>
@@ -428,17 +464,22 @@
       </div>
       <span class="prix">À partir de CHF 200</span>
     </div>
-    <div class="prestation-gallery">
-      <img class="gallery-item" src="images/categories/box-braid/1.jpg" alt="Julie Coiffure - box-braid exemple 1" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/box-braid/2.jpg" alt="Julie Coiffure - box-braid exemple 2" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/box-braid/3.jpg" alt="Julie Coiffure - box-braid exemple 3" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/box-braid/4.jpg" alt="Julie Coiffure - box-braid exemple 4" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/box-braid/5.jpg" alt="Julie Coiffure - box-braid exemple 5" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/box-braid/6.jpg" alt="Julie Coiffure - box-braid exemple 6" loading="lazy" decoding="async">
-    </div>
+    <details class="prestation-details">
+  <summary class="gallery-cover">
+    <img src="images/categories/box-braid/1.jpg" alt="Julie Coiffure - box-braid - cliquer pour voir toutes les photos" loading="lazy" decoding="async">
+    <span class="cover-overlay">📸 Voir les 6 photos</span>
+  </summary>
+  <div class="prestation-gallery">
+        <img class="gallery-item" src="images/categories/box-braid/1.jpg" alt="Julie Coiffure - box-braid exemple 1" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/box-braid/2.jpg" alt="Julie Coiffure - box-braid exemple 2" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/box-braid/3.jpg" alt="Julie Coiffure - box-braid exemple 3" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/box-braid/4.jpg" alt="Julie Coiffure - box-braid exemple 4" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/box-braid/5.jpg" alt="Julie Coiffure - box-braid exemple 5" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/box-braid/6.jpg" alt="Julie Coiffure - box-braid exemple 6" loading="lazy" decoding="async">
+  </div>
+</details>
     <div class="prestation-cta">
       <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Box%20braid%20%2F%20Twist%20%2F%20Knotless%20%2F%20Rasta*%0A%E2%8F%B3%20Dur%C3%A9e%20%3A%203h%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20200%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
-      <a href="https://cal.com/naza-rick-qwbc0k" target="_blank" rel="noopener" class="btn-cal">📅 Réserver sur Cal.com</a>
       <span class="note">Précisez petit / moyen / large à la réservation</span>
     </div>
   </div>
@@ -452,13 +493,18 @@
       </div>
       <span class="prix">À partir de CHF 250</span>
     </div>
-    <div class="prestation-gallery">
-      <img class="gallery-item" src="images/categories/locks/1.jpg" alt="Julie Coiffure - locks exemple 1" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/locks/2.jpg" alt="Julie Coiffure - locks exemple 2" loading="lazy" decoding="async">
-    </div>
+    <details class="prestation-details">
+  <summary class="gallery-cover">
+    <img src="images/categories/locks/1.jpg" alt="Julie Coiffure - locks - cliquer pour voir toutes les photos" loading="lazy" decoding="async">
+    <span class="cover-overlay">📸 Voir les 2 photos</span>
+  </summary>
+  <div class="prestation-gallery">
+        <img class="gallery-item" src="images/categories/locks/1.jpg" alt="Julie Coiffure - locks exemple 1" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/locks/2.jpg" alt="Julie Coiffure - locks exemple 2" loading="lazy" decoding="async">
+  </div>
+</details>
     <div class="prestation-cta">
       <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Locks%20%2F%20Locs*%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20250%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
-      <a href="https://cal.com/naza-rick-qwbc0k" target="_blank" rel="noopener" class="btn-cal">📅 Réserver sur Cal.com</a>
     </div>
   </div>
 
@@ -471,17 +517,22 @@
       </div>
       <span class="prix">À partir de CHF 250</span>
     </div>
-    <div class="prestation-gallery">
-      <img class="gallery-item" src="images/categories/boho-crochet/1.jpg" alt="Julie Coiffure - boho-crochet exemple 1" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/boho-crochet/2.jpg" alt="Julie Coiffure - boho-crochet exemple 2" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/boho-crochet/3.jpg" alt="Julie Coiffure - boho-crochet exemple 3" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/boho-crochet/4.jpg" alt="Julie Coiffure - boho-crochet exemple 4" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/boho-crochet/5.jpg" alt="Julie Coiffure - boho-crochet exemple 5" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/boho-crochet/6.jpg" alt="Julie Coiffure - boho-crochet exemple 6" loading="lazy" decoding="async">
-    </div>
+    <details class="prestation-details">
+  <summary class="gallery-cover">
+    <img src="images/categories/boho-crochet/1.jpg" alt="Julie Coiffure - boho-crochet - cliquer pour voir toutes les photos" loading="lazy" decoding="async">
+    <span class="cover-overlay">📸 Voir les 6 photos</span>
+  </summary>
+  <div class="prestation-gallery">
+        <img class="gallery-item" src="images/categories/boho-crochet/1.jpg" alt="Julie Coiffure - boho-crochet exemple 1" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/boho-crochet/2.jpg" alt="Julie Coiffure - boho-crochet exemple 2" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/boho-crochet/3.jpg" alt="Julie Coiffure - boho-crochet exemple 3" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/boho-crochet/4.jpg" alt="Julie Coiffure - boho-crochet exemple 4" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/boho-crochet/5.jpg" alt="Julie Coiffure - boho-crochet exemple 5" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/boho-crochet/6.jpg" alt="Julie Coiffure - boho-crochet exemple 6" loading="lazy" decoding="async">
+  </div>
+</details>
     <div class="prestation-cta">
       <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Boho%20braid%20%2F%20Crochet*%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20250%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
-      <a href="https://cal.com/naza-rick-qwbc0k" target="_blank" rel="noopener" class="btn-cal">📅 Réserver sur Cal.com</a>
     </div>
   </div>
 
@@ -494,17 +545,22 @@
       </div>
       <span class="prix">À partir de CHF 250</span>
     </div>
-    <div class="prestation-gallery">
-      <img class="gallery-item" src="images/categories/dread-locs/1.jpg" alt="Julie Coiffure - dread-locs exemple 1" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/dread-locs/2.jpg" alt="Julie Coiffure - dread-locs exemple 2" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/dread-locs/3.jpg" alt="Julie Coiffure - dread-locs exemple 3" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/dread-locs/4.jpg" alt="Julie Coiffure - dread-locs exemple 4" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/dread-locs/5.jpg" alt="Julie Coiffure - dread-locs exemple 5" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/dread-locs/6.jpg" alt="Julie Coiffure - dread-locs exemple 6" loading="lazy" decoding="async">
-    </div>
+    <details class="prestation-details">
+  <summary class="gallery-cover">
+    <img src="images/categories/dread-locs/1.jpg" alt="Julie Coiffure - dread-locs - cliquer pour voir toutes les photos" loading="lazy" decoding="async">
+    <span class="cover-overlay">📸 Voir les 6 photos</span>
+  </summary>
+  <div class="prestation-gallery">
+        <img class="gallery-item" src="images/categories/dread-locs/1.jpg" alt="Julie Coiffure - dread-locs exemple 1" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/dread-locs/2.jpg" alt="Julie Coiffure - dread-locs exemple 2" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/dread-locs/3.jpg" alt="Julie Coiffure - dread-locs exemple 3" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/dread-locs/4.jpg" alt="Julie Coiffure - dread-locs exemple 4" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/dread-locs/5.jpg" alt="Julie Coiffure - dread-locs exemple 5" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/dread-locs/6.jpg" alt="Julie Coiffure - dread-locs exemple 6" loading="lazy" decoding="async">
+  </div>
+</details>
     <div class="prestation-cta">
       <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Dread%20locs%20%2F%20Sister%20locs%20%2F%20Micro%20locs%20%2F%20Micro%20twist*%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20250%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
-      <a href="https://cal.com/naza-rick-qwbc0k" target="_blank" rel="noopener" class="btn-cal">📅 Réserver sur Cal.com</a>
     </div>
   </div>
 
@@ -519,16 +575,21 @@
       </div>
       <span class="prix">À partir de CHF 180</span>
     </div>
-    <div class="prestation-gallery">
-      <img class="gallery-item" src="images/categories/tissage/1.jpg" alt="Julie Coiffure - tissage exemple 1" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/tissage/2.jpg" alt="Julie Coiffure - tissage exemple 2" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/tissage/3.jpg" alt="Julie Coiffure - tissage exemple 3" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/tissage/4.jpg" alt="Julie Coiffure - tissage exemple 4" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/tissage/5.jpg" alt="Julie Coiffure - tissage exemple 5" loading="lazy" decoding="async">
-    </div>
+    <details class="prestation-details">
+  <summary class="gallery-cover">
+    <img src="images/categories/tissage/1.jpg" alt="Julie Coiffure - tissage - cliquer pour voir toutes les photos" loading="lazy" decoding="async">
+    <span class="cover-overlay">📸 Voir les 5 photos</span>
+  </summary>
+  <div class="prestation-gallery">
+        <img class="gallery-item" src="images/categories/tissage/1.jpg" alt="Julie Coiffure - tissage exemple 1" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/tissage/2.jpg" alt="Julie Coiffure - tissage exemple 2" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/tissage/3.jpg" alt="Julie Coiffure - tissage exemple 3" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/tissage/4.jpg" alt="Julie Coiffure - tissage exemple 4" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/tissage/5.jpg" alt="Julie Coiffure - tissage exemple 5" loading="lazy" decoding="async">
+  </div>
+</details>
     <div class="prestation-cta">
       <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Tissage%20(ferm%C3%A9%20%2F%20ouvert%20%2F%20milieu)*%0A%E2%8F%B3%20Dur%C3%A9e%20%3A%202h30%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20180%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
-      <a href="https://cal.com/naza-rick-qwbc0k" target="_blank" rel="noopener" class="btn-cal">📅 Réserver sur Cal.com</a>
     </div>
   </div>
 
@@ -541,16 +602,21 @@
       </div>
       <span class="prix">À partir de CHF 220</span>
     </div>
-    <div class="prestation-gallery">
-      <img class="gallery-item" src="images/categories/weft/1.jpg" alt="Julie Coiffure - weft exemple 1" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/weft/2.jpg" alt="Julie Coiffure - weft exemple 2" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/weft/3.jpg" alt="Julie Coiffure - weft exemple 3" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/weft/4.jpg" alt="Julie Coiffure - weft exemple 4" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/weft/5.jpg" alt="Julie Coiffure - weft exemple 5" loading="lazy" decoding="async">
-    </div>
+    <details class="prestation-details">
+  <summary class="gallery-cover">
+    <img src="images/categories/weft/1.jpg" alt="Julie Coiffure - weft - cliquer pour voir toutes les photos" loading="lazy" decoding="async">
+    <span class="cover-overlay">📸 Voir les 5 photos</span>
+  </summary>
+  <div class="prestation-gallery">
+        <img class="gallery-item" src="images/categories/weft/1.jpg" alt="Julie Coiffure - weft exemple 1" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/weft/2.jpg" alt="Julie Coiffure - weft exemple 2" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/weft/3.jpg" alt="Julie Coiffure - weft exemple 3" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/weft/4.jpg" alt="Julie Coiffure - weft exemple 4" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/weft/5.jpg" alt="Julie Coiffure - weft exemple 5" loading="lazy" decoding="async">
+  </div>
+</details>
     <div class="prestation-cta">
       <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Weft%20extension%20sans%20colle%20%2F%20Microring*%0A%E2%8F%B3%20Dur%C3%A9e%20%3A%202h30%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20220%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
-      <a href="https://cal.com/naza-rick-qwbc0k" target="_blank" rel="noopener" class="btn-cal">📅 Réserver sur Cal.com</a>
     </div>
   </div>
 
@@ -566,7 +632,6 @@
     <div class="gallery-empty">Photos sur demande<br><span style="font-size:.8em;">Demandez le book à Julie</span></div>
     <div class="prestation-cta">
       <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Tip%20extension%20(I-tip%20%2F%20U-tip)*%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20250%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
-      <a href="https://cal.com/naza-rick-qwbc0k" target="_blank" rel="noopener" class="btn-cal">📅 Réserver sur Cal.com</a>
     </div>
   </div>
 
@@ -579,15 +644,20 @@
       </div>
       <span class="prix">À partir de CHF 300</span>
     </div>
-    <div class="prestation-gallery">
-      <img class="gallery-item" src="images/categories/keratine/1.jpg" alt="Julie Coiffure - keratine exemple 1" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/keratine/2.jpg" alt="Julie Coiffure - keratine exemple 2" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/keratine/3.jpg" alt="Julie Coiffure - keratine exemple 3" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/keratine/4.jpg" alt="Julie Coiffure - keratine exemple 4" loading="lazy" decoding="async">
-    </div>
+    <details class="prestation-details">
+  <summary class="gallery-cover">
+    <img src="images/categories/keratine/1.jpg" alt="Julie Coiffure - keratine - cliquer pour voir toutes les photos" loading="lazy" decoding="async">
+    <span class="cover-overlay">📸 Voir les 4 photos</span>
+  </summary>
+  <div class="prestation-gallery">
+        <img class="gallery-item" src="images/categories/keratine/1.jpg" alt="Julie Coiffure - keratine exemple 1" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/keratine/2.jpg" alt="Julie Coiffure - keratine exemple 2" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/keratine/3.jpg" alt="Julie Coiffure - keratine exemple 3" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/keratine/4.jpg" alt="Julie Coiffure - keratine exemple 4" loading="lazy" decoding="async">
+  </div>
+</details>
     <div class="prestation-cta">
       <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Extension%20K%C3%A9ratine%20(avec%20colle)*%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20300%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
-      <a href="https://cal.com/naza-rick-qwbc0k" target="_blank" rel="noopener" class="btn-cal">📅 Réserver sur Cal.com</a>
     </div>
   </div>
 
@@ -600,13 +670,18 @@
       </div>
       <span class="prix">À partir de CHF 170</span>
     </div>
-    <div class="prestation-gallery">
-      <img class="gallery-item" src="images/categories/lace-wig/1.jpg" alt="Julie Coiffure - lace-wig exemple 1" loading="lazy" decoding="async">
-      <img class="gallery-item" src="images/categories/lace-wig/2.jpg" alt="Julie Coiffure - lace-wig exemple 2" loading="lazy" decoding="async">
-    </div>
+    <details class="prestation-details">
+  <summary class="gallery-cover">
+    <img src="images/categories/lace-wig/1.jpg" alt="Julie Coiffure - lace-wig - cliquer pour voir toutes les photos" loading="lazy" decoding="async">
+    <span class="cover-overlay">📸 Voir les 2 photos</span>
+  </summary>
+  <div class="prestation-gallery">
+        <img class="gallery-item" src="images/categories/lace-wig/1.jpg" alt="Julie Coiffure - lace-wig exemple 1" loading="lazy" decoding="async">
+    <img class="gallery-item" src="images/categories/lace-wig/2.jpg" alt="Julie Coiffure - lace-wig exemple 2" loading="lazy" decoding="async">
+  </div>
+</details>
     <div class="prestation-cta">
       <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Pose%20perruque%20lace%20wigs*%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20170%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
-      <a href="https://cal.com/naza-rick-qwbc0k" target="_blank" rel="noopener" class="btn-cal">📅 Réserver sur Cal.com</a>
     </div>
   </div>
 
@@ -622,7 +697,6 @@
     <div class="gallery-empty">Photos sur demande<br><span style="font-size:.8em;">Technique d'attache au fil</span></div>
     <div class="prestation-cta">
       <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Extension%20au%20fil%20%2F%20piqu%C3%A9%20%2F%20l%C3%A2ch%C3%A9*%0A%E2%8F%B3%20Dur%C3%A9e%20%3A%205h%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20200%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
-      <a href="https://cal.com/naza-rick-qwbc0k" target="_blank" rel="noopener" class="btn-cal">📅 Réserver sur Cal.com</a>
     </div>
   </div>
 
@@ -640,7 +714,6 @@
     </p>
     <div class="prestation-cta">
       <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20une%20consultation%20avant%20RDV%20%E2%9C%89%EF%B8%8F%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
-      <a href="https://cal.com/naza-rick-qwbc0k" target="_blank" rel="noopener" class="btn-cal">📅 Réserver sur Cal.com</a>
     </div>
   </div>
 
