@@ -355,6 +355,17 @@
     vertical-align: middle;
   }
 
+  /* DESCRIPTION PRESTATION (sous le head) */
+  .prestation-desc {
+    color: var(--gris);
+    font-size: 0.95em;
+    line-height: 1.55;
+    margin: 0 0 16px;
+    padding-left: 14px;
+    border-left: 3px solid var(--or);
+    font-style: italic;
+  }
+
   @media (max-width: 700px) {
     .prestation-head { flex-direction: column; }
     .prestation-head .prix { align-self: flex-start; }
@@ -624,9 +635,27 @@
   <div class="prestation" id="tip">
     <div class="prestation-head">
       <div>
-        <h3>Tip extension (I-tip / U-tip)</h3>
+        <h3>Tip extension (I-tip / U-tip) <span class="photo-count">2 photos</span></h3>
         <div class="duree">⏱ Durée : variable</div>
       </div>
+      <span class="prix">À partir de CHF 250</span>
+    </div>
+    <p class="prestation-desc">Pose par micro-anneaux ou kératine froide sans colle chaude. Demandez à Julie de vous montrer son book photos lors de la consultation.</p>
+    <details class="prestation-details">
+      <summary class="gallery-cover">
+        <img src="images/categories/tip/1.jpg" alt="Julie Coiffure - tip - cliquer pour voir toutes les photos" loading="lazy" decoding="async">
+        <span class="cover-overlay">📸 Voir les 2 photos</span>
+      </summary>
+      <div class="prestation-gallery">
+        <img class="gallery-item" src="images/categories/tip/1.jpg" alt="Julie Coiffure - tip exemple 1" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/tip/2.jpg" alt="Julie Coiffure - tip exemple 2" loading="lazy" decoding="async">
+      </div>
+    </details>
+    <div class="prestation-cta">
+      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%E2%9C%89%EF%B8%8F%20*Tip%20extension*%0A%F0%9F%92%B0%20%C3%80%20partir%20de%20CHF%20250%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
+      <span class="note">Réponse généralement sous 1h</span>
+    </div>
+  </div>
       <span class="prix">À partir de CHF 250</span>
     </div>
     <div class="gallery-empty">Photos sur demande<br><span style="font-size:.8em;">Demandez le book à Julie</span></div>
