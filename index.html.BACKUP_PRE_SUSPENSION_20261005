@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Julie Coiffure - Tresses africaines et extensions à Fribourg. Salon spécialisé tresses, locks, braids, perruques, soins capillaires. 4.8★ sur Google.">
+<meta name="theme-color" content="#0F0F0F">
+<title>Julie Coiffure - Tresses africaines & Extensions · Fribourg</title>
+
+<!-- Open Graph / WhatsApp preview -->
+<meta property="og:title" content="Julie Coiffure - Tresses africaines & Extensions à Fribourg">
+<meta property="og:description" content="Salon de coiffure spécialisé tresses africaines, braids, locks, extensions à Fribourg. 4.8 étoiles sur Google (41 avis).">
+<meta property="og:type" content="business.business">
+
+<style>
+  /* ============================================================
+     JULIE COIFFURE — V3
+     Sections prestations fusionnées (galerie + réservation)
+     Palette : noir profond + doré africain
+     ============================================================ */
+  :root {
+    --noir: #0F0F0F;
+    --or:   #C9A961;
+    --or-light: #E8D4A0;
+    --terre: #8B4513;
+    --creme: #FBF7F0;
+    --gris: #4A4A4A;
+    --shadow: 0 10px 30px -10px rgba(0,0,0,0.3);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--noir);
+    line-height: 1.6;
+    background: var(--creme);
+  }
+
+  /* HEADER */
+  header {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--noir);
+    color: var(--creme);
+    padding: 16px 24px;
+    display: flex; justify-content: space-between; align-items: center;
+    box-shadow: var(--shadow);
+  }
+  .logo {
+    font-family: "Georgia", serif;
+    font-size: 1.3em;
+    color: var(--or);
+    letter-spacing: 1px;
+  }
+  .logo small { color: var(--or-light); font-size: 0.6em; display: block; font-family: -apple-system, sans-serif; letter-spacing: 0.5px; }
+  nav a {
+    color: var(--creme); text-decoration: none; margin-left: 20px;
+    font-size: 0.95em;
+  }
+  nav a:hover { color: var(--or); }
+  .cta-call {
+    background: var(--or);
+    color: var(--noir);
+    padding: 10px 20px;
+    border-radius: 24px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 16px;
+  }
+  .cta-call:hover { background: var(--or-light); }
+  @media (max-width: 700px) {
+    nav a:not(.cta-call) { display: none; }
+  }
+
+  /* HERO */
+  .hero {
+    background:
+      linear-gradient(135deg, rgba(15,15,15,0.85), rgba(139,69,19,0.7));
+    color: var(--creme);
+    padding: 80px 24px;
+    text-align: center;
+    min-height: 60vh;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+  }
+  .hero h1 {
+    font-family: "Georgia", serif;
+    font-size: clamp(2em, 5vw, 3.5em);
+    color: var(--or-light);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+  .hero p.tagline {
+    font-size: clamp(1em, 2vw, 1.3em);
+    margin-bottom: 32px;
+    opacity: 0.9;
+    max-width: 600px;
+  }
+  .badges {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 24px;
+  }
+  .badge {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid var(--or);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.9em;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 60px 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  section h2 {
+    font-family: "Georgia", serif;
+    font-size: clamp(1.6em, 3vw, 2.2em);
+    color: var(--noir);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  section h2::after {
+    content: ""; display: block; width: 60px; height: 3px;
+    background: var(--or); margin: 12px auto 24px;
+  }
+  section .sous-titre {
+    text-align: center; max-width: 680px; margin: 0 auto 32px; color: var(--gris);
+  }
+
+  /* PRESTATION = GALERIE + RESA fusionnées */
+  .prestation {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--or);
+  }
+  .prestation-head {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    flex-wrap: wrap; gap: 16px;
+    margin-bottom: 24px;
+  }
+  .prestation-head h3 {
+    font-family: "Georgia", serif;
+    color: var(--noir);
+    font-size: 1.5em;
+    margin-bottom: 4px;
+  }
+  .prestation-head .prix {
+    color: var(--terre);
+    font-weight: 600;
+    font-size: 1.05em;
+    background: var(--creme);
+    padding: 6px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .prestation-head .duree {
+    color: var(--gris);
+    font-size: 0.95em;
+    margin-top: 4px;
+  }
+  .prestation-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .prestation-gallery .gallery-item {
+    aspect-ratio: 4/5;
+    border-radius: 10px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #3a3a3a, #1a1a1a);
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s;
+  }
+  .prestation-gallery .gallery-item:hover { transform: scale(1.03); }
+
+  /* DETAILS + COVER PHOTO CLIQUABLE */
+  .prestation-details { margin-bottom: 24px; }
+  .prestation-details summary {
+    list-style: none;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, #3a3a3a, #1a1a1a);
+    box-shadow: 0 6px 20px -8px rgba(0,0,0,.25);
+  }
+  .prestation-details summary::-webkit-details-marker { display: none; }
+  .prestation-details summary img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform .4s;
+  }
+  .prestation-details summary:hover img { transform: scale(1.05); }
+  .prestation-details summary .cover-overlay {
+    position: absolute; bottom: 12px; left: 12px;
+    background: rgba(15,15,15,0.85);
+    color: var(--or-light);
+    padding: 8px 16px;
+    border-radius: 24px;
+    font-size: 0.9em; font-weight: 600;
+    backdrop-filter: blur(4px);
+    border: 1px solid var(--or);
+    pointer-events: none;
+  }
+  .prestation-details[open] summary {
+    aspect-ratio: auto;
+    margin-bottom: 16px;
+  }
+  .prestation-details[open] summary .cover-overlay::after {
+    content: " — cliquez pour réduire";
+    font-weight: 400; font-size: 0.85em; opacity: 0.7;
+  }
+  .prestation-cta {
+    display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+    padding-top: 16px; border-top: 1px solid #eee;
+  }
+  .prestation-cta .btn-wa {
+    background: #25D366; color: white;
+    padding: 12px 20px; border-radius: 24px;
+    text-decoration: none; font-weight: 600; font-size: 0.95em;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .prestation-cta .btn-wa:hover { background: #1ebe5a; }
+.prestation-cta .note {
+    color: var(--gris); font-size: 0.85em; font-style: italic; margin-left: auto;
+  }
+
+  /* AVIS */
+  .avis-band {
+    background: var(--noir);
+    color: var(--creme);
+    padding: 60px 24px;
+    text-align: center;
+  }
+  .avis-band .stars { color: var(--or); font-size: 1.8em; margin-bottom: 8px; }
+  .avis-band .note-big { font-size: 3em; font-weight: bold; color: var(--or-light); }
+  .avis-band .count { opacity: 0.7; margin-bottom: 32px; }
+  .avis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1100px; margin: 32px auto 0;
+  }
+  .avis {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,169,97,0.3);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: left;
+  }
+  .avis .head { display: flex; justify-content: space-between; margin-bottom: 8px; }
+  .avis .auteur { color: var(--or-light); font-weight: 600; }
+  .avis .etoiles { color: var(--or); }
+  .avis .texte { font-style: italic; opacity: 0.85; }
+
+  /* CONTACT */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 32px;
+    margin-top: 32px;
+  }
+  .info-block {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+  }
+  .info-block h3 { color: var(--terre); margin-bottom: 12px; }
+  .info-block p { color: var(--gris); margin: 4px 0; }
+  .info-block a { color: var(--noir); text-decoration: none; font-weight: 600; }
+  .info-block a:hover { color: var(--terre); }
+  .map-placeholder {
+    aspect-ratio: 16/9;
+    border-radius: 12px;
+    margin-top: 24px;
+    overflow: hidden;
+  }
+
+  /* WHATSAPP FLOTTANT */
+  .whatsapp-float {
+    position: fixed; bottom: 24px; right: 24px;
+    background: #25D366; color: white;
+    width: 56px; height: 56px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; box-shadow: 0 4px 16px rgba(0,0,0,.3);
+    z-index: 99; font-size: 1.5em;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--noir);
+    color: var(--creme);
+    text-align: center;
+    padding: 32px 24px;
+    font-size: 0.9em;
+    opacity: 0.9;
+  }
+  footer a { color: var(--or); text-decoration: none; }
+
+  /* AVERTISSEMENT TARIF */
+  .tarif-warn {
+    text-align: center; max-width: 800px; margin: 0 auto 40px;
+    color: var(--gris); font-style: italic;
+    background: var(--creme); padding: 16px; border-radius: 8px;
+    border-left: 3px solid var(--or);
+  }
+  .tarif-warn strong { color: var(--terre); font-style: normal; }
+
+  /* MINI-NAV PRESTATIONS (jump rapide) */
+  .prestations-nav {
+    display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+    margin: 0 auto 32px; max-width: 900px;
+    padding: 12px; background: white; border-radius: 12px;
+    box-shadow: var(--shadow);
+  }
+  .prestations-nav a {
+    background: var(--creme); color: var(--noir);
+    padding: 8px 14px; border-radius: 20px;
+    font-size: 0.85em; text-decoration: none;
+    border: 1px solid transparent;
+    transition: all .2s;
+    white-space: nowrap;
+  }
+  .prestations-nav a:hover { background: var(--or); color: var(--noir); border-color: var(--terre); }
+  .prestations-nav a.anchor-tres { background: #FBF7F0; border-color: #8B4513; }
+  .prestations-nav a.anchor-ext { background: #F8F4E8; border-color: #C9A961; }
+
+  /* GALERIE VIDE / FALLBACK */
+  .gallery-empty {
+    aspect-ratio: 4/5;
+    background: linear-gradient(135deg, var(--creme), #EFE9DC);
+    border: 2px dashed var(--or);
+    border-radius: 10px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: var(--gris); font-style: italic; font-size: 0.9em;
+    text-align: center; padding: 20px;
+  }
+  .gallery-empty::before { content: "📸"; font-size: 2em; font-style: normal; margin-bottom: 8px; }
+
+  /* COMPTEUR PHOTOS */
+  .photo-count {
+    display: inline-block; background: var(--noir); color: var(--or-light);
+    padding: 2px 10px; border-radius: 12px; font-size: 0.75em; margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  /* DESCRIPTION PRESTATION (sous le head) */
+  .prestation-desc {
+    color: var(--gris);
+    font-size: 0.95em;
+    line-height: 1.55;
+    margin: 0 0 16px;
+    padding-left: 14px;
+    border-left: 3px solid var(--or);
+    font-style: italic;
+  }
+
+  @media (max-width: 700px) {
+    .prestation-head { flex-direction: column; }
+    .prestation-head .prix { align-self: flex-start; }
+    .prestation-cta .note { margin-left: 0; }
+    .prestations-nav { gap: 6px; padding: 8px; }
+    .prestations-nav a { padding: 6px 10px; font-size: 0.78em; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">
+    Julie Coiffure
+    <small>Tresses africaines & Extensions</small>
+  </div>
+  <nav>
+    <a href="#prestations">Prestations</a>
+    <a href="#apropos">À propos</a>
+    <a href="#avis">Avis</a>
+    <a href="#contact">Contact</a>
+    <a href="tel:+41779654491" class="cta-call">📞 Appeler</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>L'art de la coiffure<br>africaine à Fribourg</h1>
+  <p class="tagline">Salon privé dédié aux tresses africaines et extensions. Une cliente à la fois — exclusivement féminin.</p>
+  <p style="text-align:center; margin-bottom:32px;">
+    <a href="#prestations"
+       style="display:inline-block; background:var(--or); color:var(--noir); padding:16px 32px; border-radius:32px; font-size:1.15em; font-weight:600; text-decoration:none;">
+      📅 Voir les prestations & réserver
+    </a>
+  </p>
+  <div class="badges">
+    <span class="badge">⭐ 4.8/5 — 41 avis Google</span>
+    <span class="badge">✂️ Une cliente à la fois</span>
+    <span class="badge">👩 Salon exclusivement féminin</span>
+  </div>
+</div>
+
+<!-- PRESTATIONS — sections fusionnées galerie + réservation -->
+<section id="prestations">
+  <h2>Nos prestations</h2>
+  <p class="sous-titre">
+    Tresses, braids, locks, extensions, perruques — chaque prestation est présentée avec ses réalisations et un bouton de réservation direct.
+  </p>
+  <p class="tarif-warn">
+    ⚠️ <strong>Tous les prix affichés sont « à partir de »</strong> — tarif final communiqué après consultation selon longueur, densité et type de cheveux.
+  </p>
+
+  <!-- MINI-NAV pour saut rapide -->
+  <nav class="prestations-nav" aria-label="Navigation prestations">
+    <a href="#tresse-plaquee" class="anchor-tres">Tresses plaquées</a>
+    <a href="#box-braid" class="anchor-tres">Box braid</a>
+    <a href="#boho-crochet" class="anchor-tres">Boho / Crochet</a>
+    <a href="#dread-locs" class="anchor-tres">Dread locs</a>
+    <a href="#tissage" class="anchor-ext">Tissage</a>
+    <a href="#extension-fil" class="anchor-ext">Extension fil</a>
+    <a href="#weft" class="anchor-ext">Weft</a>
+    <a href="#tip" class="anchor-ext">Tip extension</a>
+    <a href="#keratine" class="anchor-ext">Kératine</a>
+    <a href="#lace-wig" class="anchor-ext">Lace wigs</a>
+    <a href="#consultation">Consultation</a>
+  </nav>
+
+  <!-- ========== TRESSES ========== -->
+
+  <!-- Catégorie 1 -->
+  <div class="prestation" id="tresse-plaquee">
+    <div class="prestation-head">
+      <div>
+        <h3>Tresse plaquée <span class="photo-count">8 photos</span></h3>
+        <div class="duree">⏱ Durée : ~1h30</div>
+      </div>
+      <span class="prix">À partir de CHF 50</span>
+    </div>
+    <p class="prestation-desc">Tresses réalisées à même le cuir chevelu par entrelacement progressif de mèches, formant des rangées plaquées (lignes droites ou motifs géométriques). <span style="font-size:.75em;color:var(--gris);opacity:.7;">(Wikipedia FR — Cornrows)</span></p>
+    <details class="prestation-details">
+      <summary class="gallery-cover">
+        <img src="images/categories/tresse-plaquee/1.jpg" alt="Julie Coiffure - tresse-plaquee - cliquer pour voir toutes les photos" loading="lazy" decoding="async">
+        <span class="cover-overlay">📸 Voir les 8 photos</span>
+      </summary>
+      <div class="prestation-gallery">
+        <img class="gallery-item" src="images/categories/tresse-plaquee/2.jpg" alt="Julie Coiffure - tresse-plaquee exemple 2" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/tresse-plaquee/3.jpg" alt="Julie Coiffure - tresse-plaquee exemple 3" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/tresse-plaquee/4.jpg" alt="Julie Coiffure - tresse-plaquee exemple 4" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/tresse-plaquee/5.jpg" alt="Julie Coiffure - tresse-plaquee exemple 5" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/tresse-plaquee/6.jpg" alt="Julie Coiffure - tresse-plaquee exemple 6" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/tresse-plaquee/7.jpg" alt="Julie Coiffure - tresse-plaquee exemple 7" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/tresse-plaquee/8.jpg" alt="Julie Coiffure - tresse-plaquee exemple 8" loading="lazy" decoding="async">
+      </div>
+    </details>
+    <div class="prestation-cta">
+      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Tresse%20plaqu%C3%A9e*%0A%E2%8F%B3%20Dur%C3%A9e%20%3A%201h30%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%2050%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
+      <span class="note">Réponse généralement sous 1h</span>
+    </div>
+  </div>
+
+  <div class="prestation" id="box-braid">
+    <div class="prestation-head">
+      <div>
+        <h3>Box braid / Twist / Knotless (sans nœuds) / Rasta — petit, moyen, large <span class="photo-count">10 photos</span></h3>
+        <div class="duree">⏱ Durée : ~3h</div>
+      </div>
+      <span class="prix">À partir de CHF 150</span>
+    </div>
+    <p class="prestation-desc">Mèches de cheveux (naturels ou synthétiques) tressées ou torsadées séparément puis fixées aux cheveux naturels. Le box braid forme des sections carrées, le knotless démarre sans nœud à la racine. <span style="font-size:.75em;color:var(--gris);opacity:.7;">(Wikipedia FR — Vanilles + Cornrows)</span></p>
+    <details class="prestation-details">
+      <summary class="gallery-cover">
+        <img src="images/categories/box-braid/1.jpg" alt="Julie Coiffure - box-braid - cliquer pour voir toutes les photos" loading="lazy" decoding="async">
+        <span class="cover-overlay">📸 Voir les 10 photos</span>
+      </summary>
+      <div class="prestation-gallery">
+        <img class="gallery-item" src="images/categories/box-braid/2.jpg" alt="Julie Coiffure - box-braid exemple 2" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/box-braid/3.jpg" alt="Julie Coiffure - box-braid exemple 3" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/box-braid/4.jpg" alt="Julie Coiffure - box-braid exemple 4" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/box-braid/5.jpg" alt="Julie Coiffure - box-braid exemple 5" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/box-braid/6.jpg" alt="Julie Coiffure - box-braid exemple 6" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/box-braid/7.jpg" alt="Julie Coiffure - box-braid exemple 7" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/box-braid/8.jpg" alt="Julie Coiffure - box-braid exemple 8" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/box-braid/9.jpg" alt="Julie Coiffure - box-braid exemple 9" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/box-braid/10.jpg" alt="Julie Coiffure - box-braid exemple 10" loading="lazy" decoding="async">
+      </div>
+    </details>
+    <div class="prestation-cta">
+      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Box%20braid%20%2F%20Twist%20%2F%20Knotless%20%2F%20Rasta*%0A%E2%8F%B3%20Dur%C3%A9e%20%3A%203h%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20150%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
+      <span class="note">Précisez petit / moyen / large à la réservation</span>
+    </div>
+  </div>
+
+  
+
+  <div class="prestation" id="boho-crochet">
+    <div class="prestation-head">
+      <div>
+        <h3>Boho braid / Crochet <span class="photo-count">15 photos</span></h3>
+        <div class="duree">⏱ Durée : variable</div>
+      </div>
+      <span class="prix">À partir de CHF 250</span>
+    </div>
+    <p class="prestation-desc">Tresses africaines ornées de mèches bouclées ajoutées à l'aide d'un crochet sur des nattes plaquées, pour un rendu bohème volumineux. <span style="font-size:.75em;color:var(--gris);opacity:.7;">(Adapté Wikipedia FR — Extension_capillaire, méthode crochet)</span></p>
+    <details class="prestation-details">
+      <summary class="gallery-cover">
+        <img src="images/categories/boho-crochet/1.jpg" alt="Julie Coiffure - boho-crochet - cliquer pour voir toutes les photos" loading="lazy" decoding="async">
+        <span class="cover-overlay">📸 Voir les 15 photos</span>
+      </summary>
+      <div class="prestation-gallery">
+        <img class="gallery-item" src="images/categories/boho-crochet/2.jpg" alt="Julie Coiffure - boho-crochet exemple 2" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/boho-crochet/3.jpg" alt="Julie Coiffure - boho-crochet exemple 3" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/boho-crochet/4.jpg" alt="Julie Coiffure - boho-crochet exemple 4" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/boho-crochet/5.jpg" alt="Julie Coiffure - boho-crochet exemple 5" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/boho-crochet/6.jpg" alt="Julie Coiffure - boho-crochet exemple 6" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/boho-crochet/7.jpg" alt="Julie Coiffure - boho-crochet exemple 7" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/boho-crochet/8.jpg" alt="Julie Coiffure - boho-crochet exemple 8" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/boho-crochet/9.jpg" alt="Julie Coiffure - boho-crochet exemple 9" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/boho-crochet/10.jpg" alt="Julie Coiffure - boho-crochet exemple 10" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/boho-crochet/11.jpg" alt="Julie Coiffure - boho-crochet exemple 11" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/boho-crochet/12.jpg" alt="Julie Coiffure - boho-crochet exemple 12" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/boho-crochet/13.jpg" alt="Julie Coiffure - boho-crochet exemple 13" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/boho-crochet/14.jpg" alt="Julie Coiffure - boho-crochet exemple 14" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/boho-crochet/15.jpg" alt="Julie Coiffure - boho-crochet exemple 15" loading="lazy" decoding="async">
+      </div>
+    </details>
+    <div class="prestation-cta">
+      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Boho%20braid%20%2F%20Crochet*%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20250%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
+      <span class="note">Réponse généralement sous 1h</span>
+    </div>
+  </div>
+
+  <div class="prestation" id="dread-locs">
+    <div class="prestation-head">
+      <div>
+        <h3>Dread locs / Sister locs / Micro locs / Micro twist <span class="photo-count">11 photos</span></h3>
+        <div class="duree">⏱ Durée : variable selon méthode</div>
+      </div>
+      <span class="prix">À partir de CHF 250</span>
+    </div>
+    <p class="prestation-desc">Mèches de cheveux fins et emmêlés de petit diamètre. Les « sisterlocks » sont une marque déposée de micro-locks posés avec un outil spécifique. <span style="font-size:.75em;color:var(--gris);opacity:.7;">(Wikipedia FR — Dreadlocks)</span></p>
+    <details class="prestation-details">
+      <summary class="gallery-cover">
+        <img src="images/categories/dread-locs/1.jpg" alt="Julie Coiffure - dread-locs - cliquer pour voir toutes les photos" loading="lazy" decoding="async">
+        <span class="cover-overlay">📸 Voir les 11 photos</span>
+      </summary>
+      <div class="prestation-gallery">
+        <img class="gallery-item" src="images/categories/dread-locs/2.jpg" alt="Julie Coiffure - dread-locs exemple 2" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/dread-locs/3.jpg" alt="Julie Coiffure - dread-locs exemple 3" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/dread-locs/4.jpg" alt="Julie Coiffure - dread-locs exemple 4" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/dread-locs/5.jpg" alt="Julie Coiffure - dread-locs exemple 5" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/dread-locs/6.jpg" alt="Julie Coiffure - dread-locs exemple 6" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/dread-locs/7.jpg" alt="Julie Coiffure - dread-locs exemple 7" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/dread-locs/8.jpg" alt="Julie Coiffure - dread-locs exemple 8" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/dread-locs/9.jpg" alt="Julie Coiffure - dread-locs exemple 9" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/dread-locs/10.jpg" alt="Julie Coiffure - dread-locs exemple 10" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/dread-locs/11.jpg" alt="Julie Coiffure - dread-locs exemple 11" loading="lazy" decoding="async">
+      </div>
+    </details>
+    <div class="prestation-cta">
+      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Dread%20locs%20%2F%20Sister%20locs%20%2F%20Micro%20locs%20%2F%20Micro%20twist*%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20250%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
+      <span class="note">Réponse généralement sous 1h</span>
+    </div>
+  </div>
+
+  <div class="prestation" id="tissage">
+    <div class="prestation-head">
+      <div>
+        <h3>Tissage (fermé / ouvert / milieu) <span class="photo-count">13 photos</span></h3>
+        <div class="duree">⏱ Durée : ~2h30</div>
+      </div>
+      <span class="prix">À partir de CHF 90</span>
+    </div>
+    <p class="prestation-desc">Bandes de cheveux (wefts) cousues sur des nattes plaquées. La méthode fermée (africaine) cache la couture, l'ouverte laisse le tissage apparent. <span style="font-size:.75em;color:var(--gris);opacity:.7;">(Wikipedia FR — Extension_capillaire)</span></p>
+    <details class="prestation-details">
+      <summary class="gallery-cover">
+        <img src="images/categories/tissage/1.jpg" alt="Julie Coiffure - tissage - cliquer pour voir toutes les photos" loading="lazy" decoding="async">
+        <span class="cover-overlay">📸 Voir les 13 photos</span>
+      </summary>
+      <div class="prestation-gallery">
+        <img class="gallery-item" src="images/categories/tissage/2.jpg" alt="Julie Coiffure - tissage exemple 2" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/tissage/5.jpg" alt="Julie Coiffure - tissage exemple 5" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/tissage/6.jpg" alt="Julie Coiffure - tissage exemple 6" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/tissage/7.jpg" alt="Julie Coiffure - tissage exemple 7" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/tissage/8.jpg" alt="Julie Coiffure - tissage exemple 8" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/tissage/9.jpg" alt="Julie Coiffure - tissage exemple 9" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/tissage/10.jpg" alt="Julie Coiffure - tissage exemple 10" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/tissage/11.jpg" alt="Julie Coiffure - tissage exemple 11" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/tissage/12.jpg" alt="Julie Coiffure - tissage exemple 12" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/tissage/13.jpg" alt="Julie Coiffure - tissage exemple 13" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/tissage/14.jpg" alt="Julie Coiffure - tissage exemple 14" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/tissage/15.jpg" alt="Julie Coiffure - tissage exemple 15" loading="lazy" decoding="async">
+      </div>
+    </details>
+    <div class="prestation-cta">
+      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Tissage%20(ferm%C3%A9%20%2F%20ouvert%20%2F%20milieu)*%0A%E2%8F%B3%20Dur%C3%A9e%20%3A%202h30%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%2090%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
+      <span class="note">Réponse généralement sous 1h</span>
+    </div>
+  </div>
+
+  <div class="prestation" id="extension-fil">
+    <div class="prestation-head">
+      <div>
+        <h3>Weft extension <span class="photo-count">8 photos</span></h3>
+        <div class="duree">⏱ Durée : ~5h</div>
+      </div>
+      <span class="prix">À partir de CHF 200</span>
+    </div>
+    <p class="prestation-desc">Pose à froid : une mèche d'extension est attachée à une mèche naturelle à l'aide d'un fil (élastique ou de couture) suivant la couleur des cheveux. <span style="font-size:.75em;color:var(--gris);opacity:.7;">(Wikipedia FR — Extension_capillaire)</span></p>
+    <details class="prestation-details">
+      <summary class="gallery-cover">
+        <img src="images/categories/extension-fil/1.jpg" alt="Julie Coiffure - extension-fil - cliquer pour voir toutes les photos" loading="lazy" decoding="async">
+        <span class="cover-overlay">📸 Voir les 8 photos</span>
+      </summary>
+      <div class="prestation-gallery">
+        <img class="gallery-item" src="images/categories/extension-fil/2.jpg" alt="Julie Coiffure - extension-fil exemple 2" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/extension-fil/3.jpg" alt="Julie Coiffure - extension-fil exemple 3" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/extension-fil/4.jpg" alt="Julie Coiffure - extension-fil exemple 4" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/extension-fil/5.jpg" alt="Julie Coiffure - extension-fil exemple 5" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/extension-fil/6.jpg" alt="Julie Coiffure - extension-fil exemple 6" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/extension-fil/7.jpg" alt="Julie Coiffure - extension-fil exemple 7" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/extension-fil/8.jpg" alt="Julie Coiffure - extension-fil exemple 8" loading="lazy" decoding="async">
+      </div>
+    </details>
+    <div class="prestation-cta">
+      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Weft%20extension*%0A%E2%8F%B3%20Dur%C3%A9e%20%3A%205h%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20200%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
+      <span class="note">Réponse généralement sous 1h</span>
+    </div>
+  </div><div class="prestation" id="weft">
+    <div class="prestation-head">
+      <div>
+        <h3>Extension au fil <span class="photo-count">7 photos</span></h3>
+        <div class="duree">⏱ Durée : ~2h30</div>
+      </div>
+      <span class="prix">À partir de CHF 220</span>
+    </div>
+    <p class="prestation-desc">Pose à froid : une mèche d'extension et une mèche naturelle sont passées dans un petit anneau métallique, puis serties avec une pince. <span style="font-size:.75em;color:var(--gris);opacity:.7;">(Wikipedia FR — Extension_capillaire)</span></p>
+    <details class="prestation-details">
+      <summary class="gallery-cover">
+        <img src="images/categories/weft/1.jpg" alt="Julie Coiffure - weft - cliquer pour voir toutes les photos" loading="lazy" decoding="async">
+        <span class="cover-overlay">📸 Voir les 7 photos</span>
+      </summary>
+      <div class="prestation-gallery">
+        <img class="gallery-item" src="images/categories/weft/2.jpg" alt="Julie Coiffure - weft exemple 2" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/weft/3.jpg" alt="Julie Coiffure - weft exemple 3" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/weft/4.jpg" alt="Julie Coiffure - weft exemple 4" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/weft/5.jpg" alt="Julie Coiffure - weft exemple 5" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/weft/6.jpg" alt="Julie Coiffure - weft exemple 6" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/weft/7.jpg" alt="Julie Coiffure - weft exemple 7" loading="lazy" decoding="async">
+      </div>
+    </details>
+    <div class="prestation-cta">
+      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Extension%20au%20fil*%0A%E2%8F%B3%20Dur%C3%A9e%20%3A%202h30%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20220%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
+      <span class="note">Réponse généralement sous 1h</span>
+    </div>
+  </div><div class="prestation" id="tip">
+    <div class="prestation-head">
+      <div>
+        <h3>Tip extension (I-tip / U-tip) <span class="photo-count">3 photos</span></h3>
+        <div class="duree">⏱ Durée : variable</div>
+      </div>
+      <span class="prix">À partir de CHF 250</span>
+    </div>
+    <p class="prestation-desc">Mèches d'extension terminées par une pointe (I) ou une ombilicale en U, fixées par micro-anneaux à froid ou kératine froide sur les cheveux naturels. <span style="font-size:.75em;color:var(--gris);opacity:.7;">(Wikipedia FR — Extension_capillaire)</span></p>
+    <details class="prestation-details">
+      <summary class="gallery-cover">
+        <img src="images/categories/tip/1.jpg" alt="Julie Coiffure - tip - cliquer pour voir toutes les photos" loading="lazy" decoding="async">
+        <span class="cover-overlay">📸 Voir les 3 photos</span>
+      </summary>
+      <div class="prestation-gallery">
+        <img class="gallery-item" src="images/categories/tip/2.jpg" alt="Julie Coiffure - tip exemple 2" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/tip/3.jpg" alt="Julie Coiffure - tip exemple 3" loading="lazy" decoding="async">
+      </div>
+    </details>
+    <div class="prestation-cta">
+      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Tip%20extension%20(I-tip%20%2F%20U-tip)*%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20250%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
+      <span class="note">Réponse généralement sous 1h</span>
+    </div>
+  </div>
+
+  <div class="prestation" id="keratine">
+    <div class="prestation-head">
+      <div>
+        <h3>Extension Kératine (avec colle chaude) <span class="photo-count">3 photos</span></h3>
+        <div class="duree">⏱ Durée : variable</div>
+      </div>
+      <span class="prix">À partir de CHF 300</span>
+    </div>
+    <p class="prestation-desc">Pose à chaud : une mèche d'extension portant un point de kératine à son extrémité est fondue à la pince chauffante sur la mèche naturelle. <span style="font-size:.75em;color:var(--gris);opacity:.7;">(Wikipedia FR — Extension_capillaire)</span></p>
+    <details class="prestation-details">
+      <summary class="gallery-cover">
+        <img src="images/categories/keratine/1.jpg" alt="Julie Coiffure - keratine - cliquer pour voir la photo" loading="lazy" decoding="async">
+        <span class="cover-overlay">📸 Voir les 3 photos</span>
+      </summary>
+      <div class="prestation-gallery">
+        <img class="gallery-item" src="images/categories/keratine/2.jpg" alt="Julie Coiffure - keratine exemple 2" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/keratine/3.jpg" alt="Julie Coiffure - keratine exemple 3" loading="lazy" decoding="async">
+      </div>
+    </details>
+    <div class="prestation-cta">
+      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Extension%20K%C3%A9ratine%20(avec%20colle)*%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20300%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
+      <span class="note">Réponse généralement sous 1h</span>
+    </div>
+  </div>
+
+  <div class="prestation" id="lace-wig">
+    <div class="prestation-head">
+      <div>
+        <h3>Pose perruque lace wigs (avec / sans colle) <span class="photo-count">3 photos</span></h3>
+        <div class="duree">⏱ Durée : variable</div>
+      </div>
+      <span class="prix">À partir de CHF 170</span>
+    </div>
+    <p class="prestation-desc">Perruque construite sur une base en dentelle (lace) imitant la racine des cheveux, fixée par colle ou par élastique sur le crâne. <span style="font-size:.75em;color:var(--gris);opacity:.7;">(Wikipedia FR — Lace_wig)</span></p>
+    <details class="prestation-details">
+      <summary class="gallery-cover">
+        <img src="images/categories/lace-wig/1.jpg" alt="Julie Coiffure - lace-wig - cliquer pour voir toutes les photos" loading="lazy" decoding="async">
+        <span class="cover-overlay">📸 Voir les 3 photos</span>
+      </summary>
+      <div class="prestation-gallery">
+        <img class="gallery-item" src="images/categories/lace-wig/2.jpg" alt="Julie Coiffure - lace-wig exemple 2" loading="lazy" decoding="async">
+        <img class="gallery-item" src="images/categories/lace-wig/3.jpg" alt="Julie Coiffure - lace-wig exemple 3" loading="lazy" decoding="async">
+      </div>
+    </details>
+    <div class="prestation-cta">
+      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20un%20RDV%20pour%20%3A%0A%E2%9C%89%EF%B8%8F%20*Pose%20perruque%20lace%20wigs*%0A%F0%9F%92%B0%20Prix%20%3A%20%C3%80%20partir%20de%20CHF%20170%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
+      <span class="note">Réponse généralement sous 1h</span>
+    </div>
+  </div>
+
+  <div class="prestation" id="consultation">
+    <div class="prestation-head">
+      <div>
+        <h3>Consultation avant Braids / Tresses</h3>
+        <div class="duree">⏱ Durée : 30 min · 💰 Offerte si RDV confirmé</div>
+      </div>
+      <span class="prix">Gratuit</span>
+    </div>
+    <p class="prestation-desc">Premier rendez-vous pour définir la coiffure, la longueur, le type de mèches, et estimer le tarif final selon votre type de cheveux.</p>
+    <div class="prestation-cta">
+      <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20une%20consultation%20avant%20RDV%20%E2%9C%89%EF%B8%8F%0A%0AMon%20nom%20%3A%0AMa%20date%20souhait%C3%A9e%20%3A" target="_blank" rel="noopener" class="btn-wa">💬 Réserver par WhatsApp</a>
+    </div>
+  </div>
+
+<!-- A PROPOS -->
+<section id="apropos">
+  <h2>À propos de Julie</h2>
+  <div style="max-width:760px; margin:0 auto; color:var(--gris); font-size:1.05em; text-align:center;">
+    <p style="margin-bottom:18px;">
+      Julie Coiffure vous accueille à Fribourg dans un <strong style="color:var(--terre);">salon privé dédié aux tresses africaines et extensions capillaires</strong>.
+    </p>
+    <p style="margin-bottom:18px;">
+      Julie maîtrise toutes les techniques : <strong>tissage, kératine, lace wigs, braids, cornrows</strong>… avec un travail précis, durable et adapté à chaque type de cheveux.
+    </p>
+    <p style="margin-bottom:18px;">
+      🎯 Consultation gratuite avant rendez-vous · Une cliente à la fois · <strong>Salon exclusivement féminin</strong>.
+    </p>
+    <p>
+      Une expertise reconnue pour un résultat net, maîtrisé et sur mesure.
+    </p>
+  </div>
+</section>
+
+<!-- AVIS -->
+<div class="avis-band" id="avis">
+  <div class="stars">★★★★★</div>
+  <div class="note-big">4.8 / 5</div>
+  <div class="count">Basé sur 41 avis Google</div>
+  <div class="avis-grid">
+    <div class="avis">
+      <div class="head"><span class="auteur">Barbara Marino</span><span class="etoiles">★★★★★</span></div>
+      <p class="texte">« Un résultat époustouflant sur ma pose d'extensions. Julie est très professionnelle, minutieuse et patiente. Elle tient compte de notre avis. D'un accueil chaleureux, elle est souriante et pleine de vie. Un véritable coup de cœur. J'y retourne sans hésiter. »</p>
+    </div>
+    <div class="avis">
+      <div class="head"><span class="auteur">Elise Rey</span><span class="etoiles">★★★★★</span></div>
+      <p class="texte">« Boho braid jusqu'aux fesses, tresse blond et mèches bouclées rose pastel. Julie est une coiffeuse africaine très professionnelle et agréable. Beaucoup de précision, patience et sans aucune douleur. Elle est très à l'écoute de ses clientes et donne de très bons conseils. »</p>
+    </div>
+    <div class="avis">
+      <div class="head"><span class="auteur">Kaki Muts</span><span class="etoiles">★★★★★</span></div>
+      <p class="texte">« Julie est super professionnelle, très sympa aussi. Le travail est de top class ! Je suis très très contente de mes tresses boho. Je recommande d'aller voir Julie. »</p>
+    </div>
+    <div class="avis">
+      <div class="head"><span class="auteur">magalie Bamana</span><span class="etoiles">★★★★★</span></div>
+      <p class="texte">« Merci beaucoup à Julie, très professionnelle et ces coiffures sont exceptionnelles, on peut les garder longtemps et elle est toujours super sympa. »</p>
+    </div>
+    <div class="avis">
+      <div class="head"><span class="auteur">xiomara tomas</span><span class="etoiles">★★★★★</span></div>
+      <p class="texte">« Très professionnelle et respectueuse envers les souhaits des clients. Un peu chère mais on est en suisse 😌 Merci beaucoup pour cette belle coiffure. »</p>
+    </div>
+  </div>
+  <p style="margin-top:32px;">
+    <a href="https://maps.app.goo.gl/nJWnRMzHDZGth9qY6?g_st=ic"
+       target="_blank" rel="noopener"
+       style="color:var(--or); text-decoration:none; font-weight:600;">
+      Voir tous les avis Google →
+    </a>
+  </p>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Prendre rendez-vous</h2>
+  <p class="sous-titre">
+    💬 Le moyen le plus rapide pour réserver — Julie répond généralement sous 1h.
+  </p>
+  <div style="text-align:center; margin-bottom:24px; display:flex; flex-wrap:wrap; gap:14px; justify-content:center; align-items:center;">
+    <a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20prendre%20RDV%20%E2%9C%89%EF%B8%8F" target="_blank" rel="noopener"
+       style="display:inline-block; background:#25D366; color:white; padding:18px 32px; border-radius:32px; font-size:1.15em; font-weight:600; text-decoration:none; box-shadow:0 4px 16px rgba(37,211,102,.3);">
+      💬 Réserver par WhatsApp
+    </a>
+  </div>
+  <p style="text-align:center; margin-bottom:40px;">
+    <a href="tel:+41779654491" style="color:var(--gris); text-decoration:underline; font-size:0.95em;">
+      ou appeler le +41 77 965 44 91
+    </a>
+  </p>
+  <div class="contact-grid">
+    <div class="info-block">
+      <h3>📍 Adresse</h3>
+      <p>Av. de Granges-Paccot 2</p>
+      <p>1700 Fribourg</p>
+      <p style="font-size:0.9em; opacity:0.7; margin-top:8px;">Salon privé sur rendez-vous uniquement</p>
+    </div>
+    <div class="info-block">
+      <h3>🕐 Horaires</h3>
+      <p><strong>Lundi – Vendredi</strong></p>
+      <p>9h00 – 18h00</p>
+      <p style="margin-top:8px;"><strong>Samedi</strong></p>
+      <p>9h00 – 20h00</p>
+      <p style="margin-top:8px;"><strong>Dimanche</strong></p>
+      <p>Fermé</p>
+    </div>
+    <div class="info-block">
+      <h3>💡 À savoir</h3>
+      <p>Une cliente à la fois</p>
+      <p>Salon exclusivement féminin</p>
+      <p>Consultation 30 min offerte</p>
+    </div>
+  </div>
+  <div class="map-placeholder" style="padding:0; background:none;">
+    <iframe
+      src="https://maps.google.com/maps?q=Julie+Coiffure+Tresses+africaines+et+extensions+Av.+de+Granges-Paccot+2+1700+Fribourg&hl=fr&z=16&output=embed"
+      width="100%"
+      height="380"
+      style="border:0; border-radius:12px;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Julie Coiffure - Av. de Granges-Paccot 2, 1700 Fribourg">
+    </iframe>
+  </div>
+</section>
+
+<!-- WHATSAPP FLOTTANT -->
+<a href="https://wa.me/41779654491?text=Bonjour%20Julie%2C%20je%20souhaite%20prendre%20RDV%20%E2%9C%89%EF%B8%8F"
+   class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contacter sur WhatsApp"
+   title="Réserver par WhatsApp">
+  💬
+</a>
+
+<footer>
+  <p>© 2026 Julie Coiffure - Tresses africaines & Extensions · Site créé par
+    <a href="https://handsonnazarick.github.io/ainz-webdesign/" target="_blank" rel="noopener">Ainz Web Design</a>
+  </p>
+</footer>
+
+</body>
+</html>
